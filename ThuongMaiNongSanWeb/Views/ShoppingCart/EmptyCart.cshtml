@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Trang chủ giỏ hàng</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="#">Trang mua sắm</a></li>
+        <li class="breadcrumb-item active text-white">Giỏ hàng</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<!-- Empty Cart Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <i class="bi bi-cart-x display-1 text-primary"></i>
+                <h1 class="mb-4 mt-lg-4">Giỏ hàng hiện đang <span class="text-danger">trống</span></h1>
+                <p class="mb-4">Hãy trở về shop và chọn cho mình những sản phẩm thật ưng ý nhé!</p>
+                <a class="btn border-secondary rounded-pill py-3 px-5" href="@Url.Action("Index", "Product", new { area = "" })">Quay trở lại mua sắm</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Empty Cart End -->

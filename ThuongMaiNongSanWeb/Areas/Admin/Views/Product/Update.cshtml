@@ -1,0 +1,103 @@
+﻿@model WebApp.Models.SanPham
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="container-fluid" style="background-image: url('/Template/img/hero-img.jpg'); background-size: cover;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center p-4" style="background-color: rgba(255, 255, 255, 0.7); border-radius: 10px;">
+                <h2 style="color: #4caf50;">Chỉnh sửa thông tin sản phẩm</h2>
+            </div>
+            <form asp-action="Update" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Idsp" />
+                <input type="hidden" id="oldImagePath" value="@Model.HinhAnhSp" />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="SpName" style="color: #4caf50;">Tên sản phẩm</label>
+                            <input asp-for="SpName" class="form-control" />
+                            <span asp-validation-for="SpName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Price" style="color: #4caf50;">Giá</label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MoTa" style="color: #4caf50;">Mô tả</label>
+                            <textarea asp-for="MoTa" class="form-control"></textarea>
+                            <span asp-validation-for="MoTa" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CongDung" style="color: #4caf50;">Công dụng</label>
+                            <textarea asp-for="CongDung" class="form-control"></textarea>
+                            <span asp-validation-for="CongDung" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="ThanhPhanDinhDuong" style="color: #4caf50;">Thành phần dinh dưỡng</label>
+                            <textarea asp-for="ThanhPhanDinhDuong" class="form-control"></textarea>
+                            <span asp-validation-for="ThanhPhanDinhDuong" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Hdsd" style="color: #4caf50;">Hướng dẫn sử dụng</label>
+                            <textarea asp-for="Hdsd" class="form-control"></textarea>
+                            <span asp-validation-for="Hdsd" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Idcategory" style="color: #4caf50;">Loại sản phẩm</label>
+                            <select asp-for="Idcategory" asp-items="@ViewBag.Categories" class="form-control"></select>
+                            <span asp-validation-for="Idcategory" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="IdchungNhan" style="color: #4caf50;">Mã chứng nhận</label>
+                            <select asp-for="IdchungNhan" asp-items="@ViewBag.ChungNhans" class="form-control"></select>
+                            <span asp-validation-for="IdchungNhan" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IdDaiLy" style="color: #4caf50;">Mã đại lý</label>
+                            <select asp-for="IdDaiLy" asp-items="@ViewBag.DaiLys" class="form-control"></select>
+                            <span asp-validation-for="IdDaiLy" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SoLuongSp" style="color: #4caf50;">Số lượng</label>
+                            <input asp-for="SoLuongSp" class="form-control" />
+                            <span asp-validation-for="SoLuongSp" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="HinhAnhSp" style="color: #4caf50;">Hình ảnh sản phẩm</label>
+                            <input id="inputImg" type="file" asp-for="HinhAnhSp" class="form-control" />
+                            @if (Model.HinhAnhSp is not null)
+                            {
+                                <img id="imgViewer" class="border border-success" src="@Model.HinhAnhSp" alt="Product Image" style="max-width: 200px;" />
+                            }
+                            else
+                            {
+                                <img id="imgViewer" class="img-thumbnail border border-success" alt="Product Image" src="~/images/0d64989794b1a4c9d89bff571d3d5842.jpg" style="max-width: 200px;" />
+                            }
+                            <span asp-validation-for="HinhAnhSp" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success m-1">Cập nhật</button>
+                    <a asp-action="Index" class="btn btn-primary m-1">Trở về</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("inputImg").addEventListener("change", function (e) {
+            var files = e.target.files;
+            document.getElementById("imgViewer").src = window.URL.createObjectURL(files[0]);
+        });
+    </script>
+}

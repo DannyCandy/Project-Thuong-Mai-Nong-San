@@ -1,0 +1,189 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model WebApp.Areas.Poster.Models.Post
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "CHỈNH SỬA BÀI ĐĂNG";
+    Layout = "~/Areas/Poster/Views/Shared/_LayoutPoster.cshtml";
+}
+<!-- Tải Thư viện ClassicEditor -->
+<script src="https://cdn.jsdelivr.net/npm/ckeditor5-classic-free-full-feature@35.4.1/build/ckeditor.min.js"></script>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header btn-secondary text-white text-center">
+                    <h2 class="page-subtitle mb-4">Chỉnh sửa bài đăng</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                        <div class="form-group mb-4">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="hidden" asp-for="UpdatedAt" />
+                            <label asp-for="Title" class="form-label">Tiêu đề</label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label asp-for="Content" class="form-label">Nội dung</label>
+                            <textarea id="editor" asp-for="Content" class="form-control">@Html.Raw(Model.Content)</textarea>
+                            <span asp-validation-for="Content" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="form-label">Hình ảnh chủ đề hiện tại:</label>
+                            <div class="current-images mb-2">
+                                @if (Model.Images != null && Model.Images.Count > 0)
+                                {
+                                    foreach (var image in Model.Images)
+                                    {
+                                        <img src="@image.ImageUrl" alt="Image" class="img-thumbnail mb-2" style="max-width: 200px; max-height: 200px;" />
+                                    }
+                                }
+                                else
+                                {
+                                    <p>Không có hình ảnh.</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="form-label">Thêm hình ảnh chủ đề mới:</label>
+                            <input id="inputImg" type="file" name="newImages" multiple class="form-control" />
+                            <img id="imgViewer" src="#" alt="Image Preview" class="img-fluid mt-2" style="max-width: 200px; max-height: 200px; display: none;" />
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success me-2">Lưu thay đổi</button>
+                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">Hủy</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-subtitle {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2rem; /* Increase the size */
+        font-weight: 600; /* Make it bolder */
+        color: #343a40; /* A dark color for better visibility */
+        text-align: center; /* Center align */
+        margin-bottom: 20px; /* Space below */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Slight shadow for effect */
+    }
+
+    .page-title {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border-color: #ced4da;
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .btn-success {
+        border-radius: 20px;
+        padding: 0.5rem 1.5rem;
+        transition: background-color 0.3s;
+    }
+
+    .btn-secondary {
+        border-radius: 20px;
+        padding: 0.5rem 1.5rem;
+    }
+
+    .btn-success:hover {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .img-thumbnail {
+        border-radius: 8px;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                plugins: ['Essentials',
+                    'Paragraph',
+                    'Heading',
+                    'Bold',
+                    'Italic',
+                    'Underline',
+                    'Strikethrough',
+                    'SourceEditing',
+                    'Subscript',
+                    'Superscript',
+                    'Alignment',
+                    'Indent',
+                    'IndentBlock',
+                    'BlockQuote',
+                    'Link',
+                    'Image',
+                    'ImageCaption',
+                    'ImageStyle',
+                    'ImageToolbar',
+                    'ImageUpload',
+                    'List',
+                    'MediaEmbed',
+                    'PasteFromOffice',
+                    'Table',
+                    'TableToolbar',
+                    'TableProperties',
+                    'TableCellProperties',
+                    'Highlight',
+                    'FontFamily',
+                    'FontSize',
+                    'FontColor',
+                    'FontBackgroundColor', 'GeneralHtmlSupport', /* ... */]
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(error => {
+                console.error('CKEditor error:', error);
+            });
+    </script>
+
+    <script>
+        // Xử lý sự kiện khi người dùng chọn tệp hình ảnh mới
+        document.getElementById("inputImg").addEventListener("change", function (e) {
+            // Lấy tệp hình ảnh được chọn
+            var files = e.target.files;
+            // Kiểm tra xem có hình ảnh nào được chọn không
+            if (files.length > 0) {
+                // Hiển thị hình ảnh được chọn trong thẻ img
+                document.getElementById("imgViewer").style.display = "block";
+                document.getElementById("imgViewer").src = window.URL.createObjectURL(files[0]);
+            } else {
+                // Nếu không có hình ảnh được chọn, ẩn thẻ img
+                document.getElementById("imgViewer").style.display = "none";
+            }
+        });
+    </script>
+}

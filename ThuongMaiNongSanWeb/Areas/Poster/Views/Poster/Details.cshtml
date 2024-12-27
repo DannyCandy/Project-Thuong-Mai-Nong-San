@@ -1,0 +1,136 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+@model WebApp.Areas.Poster.Models.Post
+
+@{
+    ViewData["Title"] = "CHI TIẾT BÀI VIẾT";
+    Layout = "~/Areas/Poster/Views/Shared/_LayoutPoster.cshtml";
+
+    var currentUserId = UserManager.GetUserId(User); // Lấy ID của người dùng hiện tại
+}
+
+<div class="container mt-5">
+    <!-- Sử dụng container thay vì container-fluid -->
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="article card shadow-sm rounded">
+                <div class="card-body">
+                    <div class="article-header mb-4">
+                        <h1 class="article-title">@Model.Title</h1>
+                        <p class="article-meta">
+                            @if (Model.Author != null)
+                            {
+                                <span class="article-author">Người viết bài: @Model.Author.UserName</span>
+                            }
+                            else
+                            {
+                                <span class="article-author">Người viết bài: Lỗi hiển thị</span>
+                            }
+                            <span class="article-date">Ngày đăng bài: @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss")</span>
+                            <span class="article-update">🔄 Cập nhật lần cuối: @Model.UpdatedAt.ToString("dd/MM/yyyy HH:mm:ss")</span>
+                        </p>
+                    </div>
+                    <div class="article-body mb-5">
+                        @Html.Raw(Model.Content)
+                    </div>
+                    <div class="article-footer d-flex justify-content-between">
+                        <a href="@Url.Action("Index")" class="btn btn-outline-secondary">Quay lại danh sách</a>
+                        @if (Model.AuthorId == currentUserId) // Chỉ hiển thị nút nếu người dùng là tác giả của bài viết
+                        {
+                            <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-outline-primary">Cập Nhật Bài Viết</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    /* Custom CSS for a professional look */
+    .article.card {
+        border: none;
+        border-radius: 8px;
+        padding: 20px;
+        background-color: #fff;
+        transition: box-shadow 0.3s;
+        margin-bottom: 30px;
+    }
+
+    .article.card:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-title {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    .article-author {
+        font-weight: 500;
+        margin-right: 15px;
+    }
+
+    .article-date, .article-update {
+        display: block;
+        font-style: italic;
+    }
+
+    .article-body {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #343a40;
+    }
+
+    .col-xl-12 {
+        max-width: 100%; /* Sử dụng toàn bộ chiều rộng của container */
+    }
+
+    .article-footer .btn {
+        border-radius: 30px;
+        padding: 0.5rem 1.5rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var images = document.querySelectorAll('.article-body img'); // Chọn tất cả các hình ảnh trong phần nội dung bài viết
+
+        images.forEach(function (img) {
+            img.onload = function () {
+                // Kiểm tra kích thước của hình ảnh
+                if (img.naturalWidth > window.innerWidth * 0.8) { // Nếu hình ảnh lớn hơn 80% chiều rộng của màn hình
+                    img.style.maxWidth = '100%'; // Điều chỉnh kích thước của hình ảnh để phù hợp với màn hình
+                    img.style.height = 'auto'; // Đảm bảo tỉ lệ hình ảnh không bị biến đổi
+                    img.classList.add('img-fluid'); // Sử dụng Bootstrap để đảm bảo tính đáp ứng
+                }
+            };
+        });
+    });
+</script>

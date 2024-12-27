@@ -1,0 +1,1125 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Main.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Main.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\LayoutHome\\assets\\favicon.ico",
+      "PackagePath": "staticwebassets\\LayoutHome\\assets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\LayoutHome\\css\\styles.css",
+      "PackagePath": "staticwebassets\\LayoutHome\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\LayoutHome\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\LayoutHome\\js\\scripts.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\LayoutItem\\assets\\favicon.ico",
+      "PackagePath": "staticwebassets\\LayoutItem\\assets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\LayoutItem\\css\\styles.css",
+      "PackagePath": "staticwebassets\\LayoutItem\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\LayoutItem\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\LayoutItem\\js\\scripts.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Poster\\StylePost.css",
+      "PackagePath": "staticwebassets\\Poster\\StylePost.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\Template\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\css\\style.css",
+      "PackagePath": "staticwebassets\\Template\\css\\style.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\avatar.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\avatar.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\baner-1.png",
+      "PackagePath": "staticwebassets\\Template\\img\\baner-1.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\banner-fruits.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\banner-fruits.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\bannernongsanviet.png",
+      "PackagePath": "staticwebassets\\Template\\img\\bannernongsanviet.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\best-product-1.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\best-product-1.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\best-product-2.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\best-product-2.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\best-product-3.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\best-product-3.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\best-product-4.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\best-product-4.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\best-product-5.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\best-product-5.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\best-product-6.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\best-product-6.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\cart-page-header-img.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\cart-page-header-img.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\featur-1.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\featur-1.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\featur-2.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\featur-2.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\featur-3.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\featur-3.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\fruite-item-1.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\fruite-item-1.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\fruite-item-2.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\fruite-item-2.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\fruite-item-3.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\fruite-item-3.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\fruite-item-4.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\fruite-item-4.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\fruite-item-5.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\fruite-item-5.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\fruite-item-6.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\fruite-item-6.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\hero-img-1.png",
+      "PackagePath": "staticwebassets\\Template\\img\\hero-img-1.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\hero-img-2.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\hero-img-2.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\hero-img.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\hero-img.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\payment.png",
+      "PackagePath": "staticwebassets\\Template\\img\\payment.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\single-item.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\single-item.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\testimonial-1.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\testimonial-1.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\vegetable-item-1.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\vegetable-item-1.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\vegetable-item-2.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\vegetable-item-2.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\vegetable-item-3.png",
+      "PackagePath": "staticwebassets\\Template\\img\\vegetable-item-3.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\vegetable-item-4.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\vegetable-item-4.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\vegetable-item-5.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\vegetable-item-5.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\img\\vegetable-item-6.jpg",
+      "PackagePath": "staticwebassets\\Template\\img\\vegetable-item-6.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\js\\main.js",
+      "PackagePath": "staticwebassets\\Template\\js\\main.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\Template\\lib\\easing\\easing.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\easing\\easing.min.js",
+      "PackagePath": "staticwebassets\\Template\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\lightbox\\css\\lightbox.min.css",
+      "PackagePath": "staticwebassets\\Template\\lib\\lightbox\\css\\lightbox.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\lightbox\\images\\close.png",
+      "PackagePath": "staticwebassets\\Template\\lib\\lightbox\\images\\close.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\lightbox\\images\\loading.gif",
+      "PackagePath": "staticwebassets\\Template\\lib\\lightbox\\images\\loading.gif"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\lightbox\\images\\next.png",
+      "PackagePath": "staticwebassets\\Template\\lib\\lightbox\\images\\next.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\lightbox\\images\\prev.png",
+      "PackagePath": "staticwebassets\\Template\\lib\\lightbox\\images\\prev.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\lightbox\\js\\lightbox.min.js",
+      "PackagePath": "staticwebassets\\Template\\lib\\lightbox\\js\\lightbox.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\LICENSE",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\Template\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\waypoints\\links.php",
+      "PackagePath": "staticwebassets\\Template\\lib\\waypoints\\links.php"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\lib\\waypoints\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\Template\\lib\\waypoints\\waypoints.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_accordion.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_accordion.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_alert.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_alert.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_badge.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_badge.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_breadcrumb.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_breadcrumb.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_button-group.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_button-group.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_buttons.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_card.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_card.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_carousel.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_carousel.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_close.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_close.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_containers.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_containers.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_dropdown.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_dropdown.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_forms.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_forms.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_functions.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_functions.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_grid.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_grid.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_helpers.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_helpers.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_images.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_images.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_list-group.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_mixins.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_mixins.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_modal.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_modal.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_nav.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_nav.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_navbar.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_navbar.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_offcanvas.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_offcanvas.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_pagination.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_popover.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_popover.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_progress.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_progress.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_reboot.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_reboot.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_root.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_root.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_spinners.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_spinners.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_tables.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_tables.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_toasts.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_toasts.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_tooltip.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_tooltip.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_transitions.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_transitions.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_type.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_type.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_utilities.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\_variables.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\bootstrap-grid.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\bootstrap-grid.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\bootstrap-reboot.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\bootstrap-reboot.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\bootstrap-utilities.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\bootstrap-utilities.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_form-check.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_form-check.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_form-control.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_form-control.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_form-range.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_form-range.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_form-select.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_form-select.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_form-text.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_form-text.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_input-group.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_input-group.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_labels.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_labels.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\forms\\_validation.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\forms\\_validation.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\helpers\\_position.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\helpers\\_position.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\helpers\\_ratio.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\helpers\\_ratio.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_alert.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_alert.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_buttons.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_caret.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_caret.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_container.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_container.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_forms.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_forms.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_gradients.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_gradients.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_grid.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_grid.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_image.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_image.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_list-group.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_lists.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_lists.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_pagination.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_resize.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_resize.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_transition.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_transition.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_utilities.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\utilities\\_api.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\utilities\\_api.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\Template\\scss\\bootstrap\\scss\\vendor\\_rfs.scss",
+      "PackagePath": "staticwebassets\\Template\\scss\\bootstrap\\scss\\vendor\\_rfs.scss"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\assets\\demo\\chart-area-demo-v1.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\demo\\chart-area-demo-v1.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\assets\\demo\\chart-area-demo-v2.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\demo\\chart-area-demo-v2.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\assets\\demo\\chart-bar-demo-v1.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\demo\\chart-bar-demo-v1.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\assets\\demo\\chart-bar-demo-v2.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\demo\\chart-bar-demo-v2.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\assets\\demo\\chart-pie-demo.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\demo\\chart-pie-demo.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\assets\\demo\\datatables-demo.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\demo\\datatables-demo.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\assets\\img\\error-404-monochrome.svg",
+      "PackagePath": "staticwebassets\\admin\\assets\\img\\error-404-monochrome.svg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\css\\stylechart.css",
+      "PackagePath": "staticwebassets\\admin\\css\\stylechart.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\css\\styles.css",
+      "PackagePath": "staticwebassets\\admin\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\js\\Statistics.js",
+      "PackagePath": "staticwebassets\\admin\\js\\Statistics.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\js\\check-product-demo.js",
+      "PackagePath": "staticwebassets\\admin\\js\\check-product-demo.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\js\\datatables-simple-demo.js",
+      "PackagePath": "staticwebassets\\admin\\js\\datatables-simple-demo.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\admin\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\admin\\js\\scripts.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\css\\form_style.css",
+      "PackagePath": "staticwebassets\\css\\form_style.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\css\\homeSiteManager.css",
+      "PackagePath": "staticwebassets\\css\\homeSiteManager.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\0d64989794b1a4c9d89bff571d3d5842.jpg",
+      "PackagePath": "staticwebassets\\images\\0d64989794b1a4c9d89bff571d3d5842.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\1660671018_77_Bo-suu-tap-hinh-nen-vu-tru-4K-doc-dao.jpg",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\1660671018_77_Bo-suu-tap-hinh-nen-vu-tru-4K-doc-dao.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\Bưởi.png",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\Bưởi.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\OCCertificate.jpg",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\OCCertificate.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\Screenshot 2023-05-30 062630.png",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\Screenshot 2023-05-30 062630.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\Screenshot 2023-06-20 154417.png",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\Screenshot 2023-06-20 154417.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\Screenshot 2023-08-06 223519.png",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\Screenshot 2023-08-06 223519.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\bannernongsanviet.png",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\bannernongsanviet.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ChungNhanImg\\quality-control-approved-seal-stamp-green-flat-vector.jpg",
+      "PackagePath": "staticwebassets\\images\\ChungNhanImg\\quality-control-approved-seal-stamp-green-flat-vector.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\DaiLyImg\\Soaica.jpg",
+      "PackagePath": "staticwebassets\\images\\DaiLyImg\\Soaica.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\DaiLyImg\\YeaMiko.jpg",
+      "PackagePath": "staticwebassets\\images\\DaiLyImg\\YeaMiko.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\DaiLyImg\\admin.png",
+      "PackagePath": "staticwebassets\\images\\DaiLyImg\\admin.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\DaiLyImg\\bannernongsanviet.png",
+      "PackagePath": "staticwebassets\\images\\DaiLyImg\\bannernongsanviet.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\PostImg\\1660671018_77_Bo-suu-tap-hinh-nen-vu-tru-4K-doc-dao.jpg",
+      "PackagePath": "staticwebassets\\images\\PostImg\\1660671018_77_Bo-suu-tap-hinh-nen-vu-tru-4K-doc-dao.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\PostImg\\GaoGoCOng.jpg",
+      "PackagePath": "staticwebassets\\images\\PostImg\\GaoGoCOng.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\PostImg\\ntraiQuyt.jpg",
+      "PackagePath": "staticwebassets\\images\\PostImg\\ntraiQuyt.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\PostImg\\thanhlongbinhthuan.png",
+      "PackagePath": "staticwebassets\\images\\PostImg\\thanhlongbinhthuan.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\PostImg\\thuonghieugaonanghoa.png",
+      "PackagePath": "staticwebassets\\images\\PostImg\\thuonghieugaonanghoa.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\Buoi-Da-Xanh.png",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\Buoi-Da-Xanh.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\Bưởi.png",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\Bưởi.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\Chuoi.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\Chuoi.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\Screenshot 2023-06-20 154417.png",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\Screenshot 2023-06-20 154417.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\Screenshot 2023-08-06 223519.png",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\Screenshot 2023-08-06 223519.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\ThanhLong.jpeg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\ThanhLong.jpeg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\Xoai.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\Xoai.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\cachua.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\cachua.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\cam.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\cam.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\chomchom.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\chomchom.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\daiLoanGoCong.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\daiLoanGoCong.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\dau-phong.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\dau-phong.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\dauxanh.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\dauxanh.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\dualeo.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\dualeo.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\gaoST20.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\gaoST20.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\gaogocongg.png",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\gaogocongg.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\hat-dau-nanh.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\hat-dau-nanh.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\imagesDacNhanTam.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\imagesDacNhanTam.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\imagesHoangTuBe.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\imagesHoangTuBe.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\imagesLaiMayBAy.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\imagesLaiMayBAy.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\khe.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\khe.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\khoaitay.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\khoaitay.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\khomthom.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\khomthom.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\khoqua.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\khoqua.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\mangcau.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\mangcau.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\mit.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\mit.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\nang-thom-cho-dao-2.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\nang-thom-cho-dao-2.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\nhan.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\nhan.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\qua-sau-rieng.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\qua-sau-rieng.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\quyt.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\quyt.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\rauxalach.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\rauxalach.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\sach_hay_nen_doc_nha_gia_kim_ea63da0d8f.jpeg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\sach_hay_nen_doc_nha_gia_kim_ea63da0d8f.jpeg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\suplo.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\suplo.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\ProductImg\\taiNguyenVinhLoi.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImg\\taiNguyenVinhLoi.jpg"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\TemplateImg\\vietnamflag.png",
+      "PackagePath": "staticwebassets\\images\\TemplateImg\\vietnamflag.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\images\\essential-oil.png",
+      "PackagePath": "staticwebassets\\images\\essential-oil.png"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\js\\form_act.js",
+      "PackagePath": "staticwebassets\\js\\form_act.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\NewDesktop\\DoAnChuyenNganh\\WebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Main.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Main.props",
+      "PackagePath": "build\\Main.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Main.props",
+      "PackagePath": "buildMultiTargeting\\Main.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Main.props",
+      "PackagePath": "buildTransitive\\Main.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

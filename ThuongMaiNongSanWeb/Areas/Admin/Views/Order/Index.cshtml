@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<WebApp.Models.Order>
+@section Styles {
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet" />
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Quản lý đơn hàng</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Quản lý đơn hàng</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Quản lý đơn hàng là nơi xem xét và cập nhật đơn hàng trong hệ thống.
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tất cả đơn hàng
+            </div>
+
+            <div class="card-body">
+                <table id="dataQuanlydonhang" class="table table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Mã người mua</th>
+                            <th>Thời gian đặt</th>
+                            <th>Lời nhắn</th>
+                            <th>Địa chỉ giao hàng</th>
+                            <th>Giá trị đơn</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td>@order.OrderId</td>
+                                <td>
+                                    @order.UserId
+                                </td>
+                                <td>@order.OrderTime.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                <td>@(order.Message ?? "")</td>
+                                <td>@(order.DcGiaoHang ?? "")</td>
+                                <td>
+                                    @order.TotalPrice
+                                </td>
+                                <td>
+                                    <a asp-action="DetailOrder" asp-route-idOrder="@order.OrderId" class="m-1 btn btn-info">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataQuanlydonhang').DataTable();
+        })
+    </script>
+}

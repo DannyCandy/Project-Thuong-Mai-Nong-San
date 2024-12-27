@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống Kê Lượt Truy Cập</title>
+    <!-- Thêm Chart.js từ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Cấu hình cho toàn bộ trang */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f7fa;
+            font-family: 'Arial', sans-serif;
+            /* overflow: hidden; */ /* Ngăn cuộn trang nếu biểu đồ chiếm hết không gian */
+        }
+
+        /* Cấu hình cho phần tử chứa biểu đồ */
+        .chart-container {
+            width: 100%;
+            max-width: none;
+            height: 90vh; /* Tăng chiều cao lên để tránh cắt */
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow: auto;
+            position: relative;
+        }
+
+            .chart-container h2 {
+                font-size: 1.8em;
+                font-weight: bold;
+                color: #333;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+        .visitor-count {
+            font-size: 1.4em;
+            color: #16a085;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        canvas {
+            width: 100%;
+            height: calc(100% - 80px); /* Trừ tiêu đề và thông tin */
+            display: block; /* Tránh thêm khoảng trắng không cần thiết */
+        }
+
+        /* Hiệu ứng hover */
+        .chart-container:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>Thống Kê Lượt Truy Cập Trong Năm 2024</h2>
+        <div class="visitor-count" id="visitorCount">Đang tải...</div>
+        <canvas id="visitorChart"></canvas>
+    </div>
+
+    <!-- Liên kết file JavaScript -->
+    <script src="~/admin/js/Statistics.js"></script>
+</body>
+</html>

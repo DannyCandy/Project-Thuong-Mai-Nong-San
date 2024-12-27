@@ -1,0 +1,88 @@
+﻿.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card-body h4 {
+    font-size: 2rem;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}
+
+.card-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.form-label {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+        transform: scale(1.03);
+    }
+
+.form-select {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.text-success {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.card-header.bg-primary {
+    background: linear-gradient(45deg, #1d3557, #457b9d);
+}
+/* Tổng thể container */
+.container-fluid {
+    background-color: #f9f9f9; /* Nền sáng nhẹ */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Tiêu đề */
+h1 {
+    font-size: 3rem; /* To hơn */
+    line-height: 1.2; /* Tăng khoảng cách dòng */
+    margin-bottom: 20px;
+}
+
+.text-primary {
+    color: #007bff !important; /* Xanh dương nổi bật */
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 1.5rem; /* Chữ to hơn bình thường */
+    font-weight: 500; /* Đậm hơn */
+    color: #6c757d; /* Màu xám nhạt */
+}
+
+.breadcrumb-item.active {
+    font-size: 1.3rem; /* Chữ chính nổi bật */
+    color: #343a40; /* Đen */
+}
+
+/* Hiệu ứng box shadow */
+.bg-light {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

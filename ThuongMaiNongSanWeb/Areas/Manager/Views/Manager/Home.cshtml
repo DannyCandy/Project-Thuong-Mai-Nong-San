@@ -1,0 +1,350 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.PageType = "My Own Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int totalProducts = ViewBag.TotalProducts;
+    string nameDaiLy = ViewBag.NameDaiLy;
+    string motaDaiLy = ViewBag.MotaDaiLy;
+    SelectList categories = ViewBag.Categories;
+    string IdCate = ViewBag.IdCate;
+    string OrderBy = ViewBag.OrderBy;
+    string SearchName = ViewBag.SearchName;
+    bool isNull = ViewBag.IsNull;
+    string idDaiLy = ViewBag.IdDaiLy;
+    string avatar = ViewBag.AvatarDaiLy;
+}
+@model PaginatedList<SanPham>
+@* Xử lý nút prev và nút next *@
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+@section Styles{
+    <link href="~/css/homeSiteManager.css" rel="stylesheet" />
+}
+
+<div class="container-fluid py-5 mx-auto">
+    <div class="card py-4 px-4 container">
+        <div class="row" style="background-image: url('https://img.freepik.com/premium-photo/abstract-green-landscape-wallpaper-background-illustration-design-with-hills-mountains_717906-9867.jpg'); background-size: cover; background-position: center; padding: 20px; color: white;">
+            <div class="col-6"></div>
+            @* <div class="col-3 text-start">
+                
+            </div> *@
+            <div class="col-6 text-end">
+                <a type="button" class="btn btn-warning" asp-area="Poster" asp-controller="Poster" asp-action="Index">
+                    <i class="bi bi-search"></i> Tìm kiếm nông trại
+                </a>
+                <a type="button" class="btn btn-info" asp-area="Manager" asp-controller="Manager" asp-action="Index">
+                    <i class="bi bi-box-arrow-in-right"></i> Tới trang quản lý
+                </a>
+            </div>
+            <div class="row justify-content-start px-3 mt-3">
+                <div class="position-relative mr-3">
+                    @if (avatar != "")
+                    {
+                        <img class="user-img fit-image" src="@avatar" alt="Ảnh đại diện đại lý">
+                    }
+                    else
+                    {
+                        <img class="user-img fit-image" src="~/images/0d64989794b1a4c9d89bff571d3d5842.jpg" alt="Ảnh đại diện đại lý">
+                    }
+                    <button type="button" class="btn btn-secondary position-absolute top-0 ms-4" data-bs-toggle="modal" data-bs-target="#modalChangeAvatar"><i class="bi bi-arrow-repeat fs-5"></i></button>
+                </div>
+                <div class="text-left" style="color: black;">
+                    <h2>@nameDaiLy</h2>
+                    <h6>Sản phẩm đang bày bán: @totalProducts</h6>
+                    <span class="fa fa-star active"></span>
+                    <span class="fa fa-star active"></span>
+                    <span class="fa fa-star active"></span>
+                    <span class="fa fa-star active"></span>
+                    <span class="fa fa-star active"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row line"></div>
+        <div class="row description">
+            <!-- Phần mô tả sẽ được thêm vào đây -->
+            <span>Mô tả</span>
+            <p>@motaDaiLy</p>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalChangeAvatar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-area="Manager" asp-controller="Manager" asp-action="ChangeAvt" method="post" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thay đổi ảnh đại diện</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        @if (avatar != "")
+                        {
+                            <img id="profilePicture" alt="profile" class="img-thumbnail" style="max-height: 200px ;object-fit: cover" src="@avatar" />
+                        }
+                        else
+                        {
+                            <img id="profilePicture" alt="profile" class="img-thumbnail" style="max-height: 200px ;object-fit: cover" src="~/images/0d64989794b1a4c9d89bff571d3d5842.jpg" />
+                        }
+                    </div>
+                    <div class="input-group mt-2">
+                        <input type="file" accept="image/*"
+                               name="avtDaiLy"
+                               id="ipDaiLyAvatar"
+                               class="form-control border border-2 border-primary"
+                               onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                        <label class="input-group-text" for="ipDaiLyAvatar">Upload</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container-fluid fruite py-5">
+    <div class="container py-5 card">
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <div class="row g-4">
+                    <div class="col-xl-3">
+                        <div class="input-group w-100 mx-auto d-flex">
+                            <input id="input-search-1" type="search" class="form-control p-3" placeholder="Nhập từ khoá tìm kiếm" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" onclick="searchClick()" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                        <!--Suggestions will be appended here -->
+                        <div class="rounded-2 dropdown-content border border-success" id="search-results">
+                            <!--Ajax fetch data and load content here-->
+                        </div>
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-xl-3">
+                        <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
+                            <label for="fruits">Sắp xếp theo:</label>
+                            <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3" form="fruitform">
+                                <option value="">Mặc định</option>
+                                <option value="asc">Tăng dần</option>
+                                <option value="desc">Giảm dần</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-12">
+                        <div class="row g-4 justify-content-center">
+                            @if (isNull)
+                            {
+                                <h1>Không có kết quả tìm kiếm cho giá trị "@SearchName"</h1>
+                            }
+                            else
+                            {
+                                @foreach (var product in Model)
+                                {
+                                    <div class="col-md-6 col-lg-6 col-xl-4">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <a asp-action="Display" asp-route-id="@product.Idsp">
+                                                    <img src="@product.HinhAnhSp" class="img-fluid w-100 rounded-top" style="max-height: 180px!important" alt="Lỗi hình ảnh">
+                                                </a>
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
+                                                @*Xử lý lấy đúng category*@
+                                                @{
+                                                    string? categoryNameSp = categories
+                                                    .Cast<SelectListItem>()
+                                                    .Where(item => item.Value == product.Idcategory)
+                                                    .Select(item => item.Text)
+                                                    .FirstOrDefault();
+                                                }
+                                                @categoryNameSp
+                                            </div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4>@product.SpName</h4>
+                                                <p>@product.MoTa</p>
+                                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                                    <p class="text-dark fs-5 fw-bold mb-0">@string.Format("{0:N0} VNĐ / kg", product.Price)</p>
+                                                    <a class="btn border border-secondary rounded-pill px-3 text-primary" asp-area="" asp-controller="Product" asp-action="Display" asp-route-id="@product.Idsp"><i class="fa fa-shopping-bag me-2 text-primary"></i>Chi tiết</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            <div class="col-12">
+                                <div class="pagination d-flex justify-content-center mt-5">
+                                    <a asp-action="Home" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-category=@IdCate asp-route-orderBy=@OrderBy asp-route-searchName="@SearchName" class="rounded @prevDisabled">
+                                        &laquo;
+                                    </a>
+                                    @for (int i = 1; i <= @Model.TotalPages; i++)
+                                    {
+                                        <a class="rounded page-link @(i == @Model.PageIndex ? "active" : "")"
+                                           href="@Url.Action("Index", new { pageIndex = i , category = IdCate, orderBy = OrderBy, searchName = SearchName })">
+                                            @i
+                                        </a>
+                                    }
+                                    <a asp-action="Home" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-category=@IdCate asp-route-orderBy=@OrderBy asp-route-searchName="@SearchName" class="rounded @nextDisabled">
+                                        &raquo;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        //Gắn sự kiện onlick cho nút search
+        //document.getElementById('search-icon-1').addEventListener('click',
+        function searchClick() {
+            // Lấy giá trị của trường input
+            var inputValue = document.getElementById('input-search-1').value;
+
+            // Xử lý giá trị hoặc thực hiện các thao tác mong muốn với nó
+            // Lấy tham số từ URL hiện tại
+            var urlParams = new URLSearchParams(window.location.search);
+
+            // Kiểm tra xem tham số selectedValue có tồn tại trong URL không
+            if (urlParams.has('searchName')) {
+                // Thay thế giá trị của tham số selectedValue bằng giá trị mới
+                urlParams.set('searchName', inputValue);
+                urlParams.set('pageIndex', 1);
+            } else {
+                // Thêm tham số mới vào URL
+                urlParams.append('searchName', inputValue);
+                urlParams.set('pageIndex', 1);
+            }
+
+            // Tạo URL mới
+            var newUrl = window.location.pathname + '?' + urlParams.toString();
+
+            // Chuyển hướng đến URL mới
+            window.location.href = newUrl;
+        };
+
+        // Kiểm tra nếu có tham số trên URL, thì chọn thẻ option tương ứng
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedValue = urlParams.get('orderBy');
+        var inputedValue = urlParams.get('searchName');
+        if (selectedValue) {
+            document.getElementById('fruits').value = selectedValue;
+        }
+        if (inputedValue) {
+            document.getElementById('input-search-1').value = inputedValue;
+        }
+        //--------------------------------------------------------------------------------------
+
+        // Gắn sự kiện onchange cho thẻ select
+        document.getElementById('fruits').addEventListener('change', function () {
+            // Lấy giá trị của thẻ option được chọn
+            var selectedValue = this.value;
+
+            // Lấy tham số từ URL hiện tại
+            var urlParams = new URLSearchParams(window.location.search);
+
+            // Kiểm tra xem tham số selectedValue có tồn tại trong URL không
+            if (urlParams.has('orderBy')) {
+                // Thay thế giá trị của tham số selectedValue bằng giá trị mới
+                urlParams.set('orderBy', selectedValue);
+                urlParams.set('pageIndex', 1);
+            } else {
+                // Thêm tham số mới vào URL
+                urlParams.append('orderBy', selectedValue);
+                urlParams.set('pageIndex', 1);
+            }
+
+            // Tạo URL mới
+            var newUrl = window.location.pathname + '?' + urlParams.toString();
+
+            // Chuyển hướng đến URL mới
+            window.location.href = newUrl;
+        });
+
+        // Kiểm tra nếu có tham số trên URL, thì chọn thẻ option tương ứng
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedValue = urlParams.get('orderBy');
+        if (selectedValue) {
+            document.getElementById('fruits').value = selectedValue;
+        }
+
+        //--------------------------------------------------------------------------------
+        //Xử lý tiền hiển thị gợi ý sản phẩm
+        $(document).ready(function () {
+            $("#input-search-1").keyup(function () {
+                var query = $(this).val();
+                if (query !== '') {
+                    $.ajax({
+                        url: "/Manager/Manager/SearchSuggestions",
+                        type: "GET",
+                        data: { query: query, idDaiLy: "@idDaiLy" },
+                        dataType: "json",
+                        success: function (data) {
+                            $("#search-results").empty(); // Clear previous suggestions
+                            if (data.length > 0) {
+                                $.each(data, function (index, suggestion) {
+                                    // Tạo phần tử mới cho từng gợi ý tìm kiếm
+                                    var formattedPrice = suggestion.price.toLocaleString('vi-VN'); // Ép kiểu số tiền sang chuỗi với dấu chấm phân cách hàng trăm ngàn
+                                    var suggestionHtml =
+                                        '<a class="list" href="/Product/Display/' + suggestion.idsp + '">' +
+                                        '<img class="float-left search-image" src="' + suggestion.hinhAnhSp + '" alt="">' +
+                                        '<div class="d-flex flex-column ml-3">' +
+                                        '<span class="fw-bold">' + suggestion.spName + '</span>' +
+                                        '<small>' + formattedPrice + ' VNĐ / kg' + '</small>' +
+                                        '</div>' +
+                                        '</a>';
+
+                                    $("#search-results").append(suggestionHtml); // Thêm gợi ý mới vào phần tử #search-results
+                                });
+                                var totalResults = '<div id=fixedResultSearch>' +
+                                    '<hr class="divider">' +
+                                    '<div style = "text-align: center; margin: auto" >' +
+                                    '<a class="d-block" style="cursor: pointer">' +
+                                    '<span class="d-block" onclick="searchClick()">Có <b>' + data.length + '</b> kết quả</span>' +
+                                    '</a>'
+                                '</div>' +
+                                    '</div>'
+                                $("#search-results").append(totalResults);
+                                $(".dropdown-content").css("display", "block");
+                            } else {
+                                var noSuggestionHtml =
+                                    '<div class="list">' +
+                                    '<div class="d-flex flex-column ml-3" style="text-align: center; margin: auto">' +
+                                    '<i>Không có kết quả nào phù hợp.</i>' +
+                                    '</div>' +
+                                    '</div>';
+                                $("#search-results").append(noSuggestionHtml);
+                                $(".dropdown-content").css("display", "block");
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("Error when fetching data form SearchSuggestions:", error);
+                        }
+                    });
+                } else {
+                    $("#search-results").empty(); // Clear suggestions if query is empty
+                    $(".dropdown-content").css("display", "none");
+                }
+            });
+            // Handle click on suggestion
+            $(document).on("click", ".list", function () {
+                var selectedSuggestion = $(this).text();
+                $("#search-results").empty(); // Clear suggestions
+                $(".dropdown-content").css("display", "none"); // Hide dropdown
+            });
+            // Close dropdown if user clicks outside of it
+            $(document).click(function (event) {
+                if (!$(event.target).closest('.dropdown').length) {
+                    $(".dropdown-content").css("display", "none");
+                }
+            });
+        });
+    </script>
+}

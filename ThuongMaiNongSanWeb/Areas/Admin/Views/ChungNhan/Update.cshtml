@@ -1,0 +1,41 @@
+﻿@model WebApp.Models.ChungNhan
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Chỉnh sửa chứng nhận";
+}
+
+<div class="container-fluid d-flex align-items-center justify-content-center" style="background-image: url('/Template/img/hero-img.jpg'); background-size: cover; height: 100vh;">
+    <div class="text-center p-4" style="background-color: rgba(255, 255, 255, 0.7); border-radius: 10px; max-width: 400px; width: 100%;">
+        <h2 style="color: #4CAF50;">@ViewData["Title"]</h2>
+
+        <form asp-action="Update" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="IdchungNhan" />
+            <div class="form-group">
+                <label asp-for="MoTa" style="color: #4CAF50;"></label>
+                <textarea asp-for="MoTa" class="form-control"></textarea>
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="HinhAnhChungNhan" style="color: #4CAF50;">ChungNhan Image</label>
+                <input id="inputImg" type="file" asp-for="HinhAnhChungNhan" class="form-control" />
+                <span asp-validation-for="HinhAnhChungNhan" class="text-danger"></span>
+            </div>
+
+            <div class="mt-2 mb-2">
+                <img id="imgViewer" class="img-thumbnail" alt="Product Image" src="@Model.HinhAnhChungNhan" style="max-width: 200px;" />
+            </div>
+            <button type="submit" class="btn btn-primary m-1">Cập nhật</button>
+            <a asp-action="Index" class="btn btn-success m-1">Trở về</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("inputImg").addEventListener("change", function (e) {
+            var files = e.target.files;
+            document.getElementById("imgViewer").src = window.URL.createObjectURL(files[0]);
+        });
+    </script>
+}

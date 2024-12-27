@@ -1,0 +1,174 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@section Styles{
+    <style>
+        .card-stepper {
+            z-index: 0
+        }
+
+        #progressbar-2 {
+            color: #455A64;
+        }
+
+        #progressbar-2 li {
+            list-style-type: none;
+            font-size: 13px;
+            width: 33.33%;
+            float: left;
+            position: relative;
+        }
+
+        #progressbar-2 #step1:before {
+            content: '\f058';
+            font-family: "Font Awesome 5 Free";
+            color: #fff;
+            width: 37px;
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+
+        #progressbar-2 #step2:before {
+            content: '\f058';
+            font-family: "Font Awesome 5 Free";
+            color: #fff;
+            width: 37px;
+        }
+
+        #progressbar-2 #step3:before {
+            content: '\f058';
+            font-family: "Font Awesome 5 Free";
+            color: #fff;
+            width: 37px;
+            margin-right: 0;
+            text-align: center;
+        }
+
+        #progressbar-2 #step4:before {
+            content: '\f111';
+            font-family: "Font Awesome 5 Free";
+            color: #fff;
+            width: 37px;
+            margin-right: 0;
+            text-align: center;
+        }
+
+        #progressbar-2 li:before {
+            line-height: 37px;
+            display: block;
+            font-size: 12px;
+            background: #c5cae9;
+            border-radius: 50%;
+        }
+
+        #progressbar-2 li:after {
+            content: '';
+            width: 100%;
+            height: 10px;
+            background: #c5cae9;
+            position: absolute;
+            left: 0%;
+            right: 0%;
+            top: 15px;
+            z-index: -1;
+        }
+
+        #progressbar-2 li:nth-child(1):after {
+            left: 1%;
+            width: 100%
+        }
+
+        #progressbar-2 li:nth-child(2):after {
+            left: 1%;
+            width: 100%;
+        }
+
+        #progressbar-2 li:nth-child(3):after {
+            left: 1%;
+            width: 100%;
+            background: #c5cae9 !important;
+        }
+
+        #progressbar-2 li:nth-child(4) {
+            left: 0;
+            width: 37px;
+        }
+
+        #progressbar-2 li:nth-child(4):after {
+            left: 0;
+            width: 0;
+        }
+
+        #progressbar-2 li.active:before,
+        #progressbar-2 li.active:after {
+            background: #6520ff;
+        }
+    </style>
+}
+<section class="pb-5" style="background-color: #fff; padding-top: 60px;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-stepper text-black border-3 border border-primary" style="border-radius: 16px;">
+
+                    <div class="card-body p-5">
+
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <div>
+                                <h5 class="mb-0">Đặt hàng thành công <span class="text-primary font-weight-bold"><i class="far fa-check-circle"></i></span></h5>
+                            </div>
+                            <div class="text-end">
+                                <p class="mb-0">Đơn hàng của bạn đã được đặt thành công vào lúc <span>@ViewBag.Order.OrderTime</span></p>
+                                <p class="mb-0">Trị giá đơn hàng <span class="font-weight-bold">@ViewBag.Order.TotalPrice</span></p>
+                            </div>
+                        </div>
+
+                        <ul id="progressbar-2" class="d-flex justify-content-between mx-0 mt-0 mb-5 px-0 pt-0 pb-2">
+                            <li class="step0 active text-center" id="step1"></li>
+                            <li class="step0 active text-center" id="step2"></li>
+                            <li class="step0 active text-center" id="step3"></li>
+                            <li class="step0 text-muted text-end" id="step4"></li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between">
+                            <div class="d-lg-flex align-items-center">
+                                <i class="fas fa-clipboard-list fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                                <div>
+                                    <p class="fw-bold mb-1">Đơn hàng</p>
+                                    <p class="fw-bold mb-0">đã được xử lý</p>
+                                </div>
+                            </div>
+                            <div class="d-lg-flex align-items-center">
+                                <i class="fas fa-box-open fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                                <div>
+                                    <p class="fw-bold mb-1">Đơn hàng</p>
+                                    <p class="fw-bold mb-0">đang được đóng gói</p>
+                                </div>
+                            </div>
+                            <div class="d-lg-flex align-items-center">
+                                <i class="fas fa-shipping-fast fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                                <div>
+                                    <p class="fw-bold mb-1">Đơn hàng</p>
+                                    <p class="fw-bold mb-0">đang trên đường giao</p>
+                                </div>
+                            </div>
+                            <div class="d-lg-flex align-items-center">
+                                <i class="fas fa-home fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                                <div>
+                                    <p class="fw-bold mb-1">Đơn hàng</p>
+                                    <p class="fw-bold mb-0">Đã đến nơi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div></div>
+                        <a asp-controller="Product" asp-action="Index" asp-route-pageIndex="1" style="min-width: 300px;" class="btn border border-secondary border-3 rounded-pill px-4 py-2 mb-4 text-primary">Tiếp tục mua sắm</a>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

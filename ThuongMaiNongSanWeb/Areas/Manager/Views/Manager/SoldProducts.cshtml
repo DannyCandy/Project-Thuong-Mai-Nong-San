@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<WebApp.Areas.Manager.Models.TotalProductSoldOut>
+@section Styles {
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet" />
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Quản lý doanh số sản phẩm bán ra</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Doanh số sản phẩm bán ra trong năm 2024</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Dưới đây là số lượng sản phẩm của bạn đã bán ra trong năm <b>2024</b> theo từng sản phẩm.
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tất cả sản phẩm
+            </div>
+
+            <div class="card-body">
+                <table id="dataQuanlyluongsp" class="table table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Mô tả</th>
+                            <th>Hình ảnh</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Lượng bán ra</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var sp in Model)
+                        {
+                            <tr>
+                                <td>@sp.TenSanPham</td>
+                                <td>
+                                    @sp.MoTa
+                                </td>
+                                <td>
+                                    @if (sp.HinhAnhSp is not null)
+                                    {
+                                        <img src="@sp.HinhAnhSp" alt="Hình ảnh sp" class="img-thumbnail mt-2" style="max-width: 100px" />
+                                    }
+                                </td>
+                                <td>@sp.LoaiSp</td>
+                                <td>@sp.Price</td>
+                                <td>
+                                    @sp.TotalSolds
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataQuanlyluongsp').DataTable();
+        })
+    </script>
+}

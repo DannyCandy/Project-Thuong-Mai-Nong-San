@@ -1,0 +1,119 @@
+﻿@page
+@model UserContact
+@{
+    ViewData["Title"] = "Thông tin người dùng";
+    ViewData["ActivePage"] = ManageNavPages.UserContact;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="container mt-1">
+    @foreach(var ttlh in Model.ThongTinLienHes)
+    {
+        <!-- Box 1 -->
+        <div class="card mb-3 border border-2 border-primary" data-bs-toggle="modal" data-bs-target="#infoModal_@(ttlh.Idttlh)">
+            <div class="card-body">
+                <input type="hidden" />
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">Thông tin địa chỉ</h5>
+                    @if (ttlh.DefaultPos)
+                    {
+                        <h5><span class="badge bg-primary">Mặc định</span></h5>
+                    }
+                </div>
+                <p class="card-text">Địa chỉ giao hàng: @ttlh.DcgiaoHang</p>
+                <p class="card-text">Số điện thoại: @ttlh.Phone</p>
+            </div>
+        </div>
+        <!-- Modal Box 1 -->
+        <div class="modal fade" id="infoModal_@(ttlh.Idttlh)" tabindex="-1" aria-labelledby="infoModal_@(ttlh.Idttlh)_Label" aria-hidden="true">
+            <div class="modal-dialog d-flex justify-content-center">
+                <div class="modal-content w-75">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoModal_@(ttlh.Idttlh)_Label">Cập nhật địa chỉ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="@ttlh.Idttlh" />
+                            <input type="hidden" asp-for="@ttlh.UserId" />
+                            <!-- Pos input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="pos_@(ttlh.Idttlh)">Địa chỉ giao hàng</label>
+                                <input asp-for="@ttlh.DcgiaoHang" type="text" id="pos_@(ttlh.Idttlh)" class="form-control" required/>
+                            </div>
+
+                            <!-- Phone input -->
+                            <label for="phone_@(ttlh.Idttlh)" class="form-label">Số điện thoại</label>
+                            <div class="input-group mb-4 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text" style="border-radius:10px 0 0 10px ;">
+                                        <img src="~/images/TemplateImg/vietnamflag.png" width="24" alt="...">
+                                    </div>
+                                </div>
+                                <input asp-for="@ttlh.Phone" type="text" class="form-control" id="phone_@(ttlh.Idttlh)" pattern="^\d{10,11}$" maxlength="11" required>
+                                <span asp-validation-for="@ttlh.Phone" class="text-danger"></span>
+                            </div>
+
+                            <!-- Checkbox -->
+                            <div class="form-check d-flex justify-content-center mb-4">
+                                <input asp-for="@ttlh.DefaultPos" class="form-check-input me-2" type="checkbox" id="checkboxDefault_@(ttlh.Idttlh)" />
+                                <label class="form-check-label" for="checkboxDefault_@(ttlh.Idttlh)">
+                                    Đặt địa chỉ trên làm mặc định
+                                </label>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                <button type="submit" class="btn btn-danger" asp-page-handler="Delete" asp-route-idTtlh="@ttlh.Idttlh">Xóa địa chỉ</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+    }
+    @if(Model.ThongTinLienHes.Count < 3)
+    {
+        <!-- Add New Box -->
+        <div class="card mb-3 text-center" data-bs-toggle="modal" data-bs-target="#addNewModal">
+            <div class="card-body">
+                <i class="bi bi-plus-circle display-5 text-primary"></i>
+            </div>
+        </div>
+        <!-- Add New Modal -->
+        <div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="addNewModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addNewModalLabel">Thêm mới</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" asp-page-handler="Add">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="InputModel.Idttlh" value=""/>
+                            <input type="hidden" asp-for="InputModel.UserId" value="" /> 
+                            <div class="mb-3">
+                                <label for="newAddress" class="form-label">Địa chỉ liên lạc</label>
+                                <input asp-for="InputModel.DcgiaoHang" type="text" class="form-control" id="newAddress" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newPhone" class="form-label">Số điện thoại</label>
+                                <input asp-for="InputModel.Phone" type="text" class="form-control" id="newPhone" pattern="^\d{10,11}$" maxlength="11" required>
+                                <span asp-validation-for="InputModel.Phone" class="text-danger"></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

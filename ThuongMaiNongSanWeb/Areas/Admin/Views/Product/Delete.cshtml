@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebApp.Models.SanPham
+
+<div class="container-fluid" style="background-image: url('/Template/img/hero-img.jpg'); background-size: cover;">
+    <div class="text-center p-4" style="background-color: rgba(255, 255, 255, 0.7); border-radius: 10px;">
+        <h2 style="color: #4CAF50;">Bạn có chắc muốn xoá sản phẩm?</h2>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #4CAF50;">Chi tiết sản phẩm</h4>
+                        <ul class="list-group list-group-flush">
+                            <!-- Các thông tin sản phẩm -->
+                            <li class="list-group-item" style="color: #4CAF50;">Tên sản phẩm: @Model.SpName</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Giá: @string.Format("{0:#,##0} VNĐ / kg", @Model.Price)</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Mô tả: @Model.MoTa</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Công dụng: @Model.CongDung</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Thành phần dinh dưỡng: @Model.ThanhPhanDinhDuong</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Hướng dẫn sử dụng: @Model.Hdsd</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Số lượng: @Model.SoLuongSp</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Loại sản phẩm: @ViewBag.CategoryName</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Nhà phân phối: @ViewBag.NhaPhanPhoiName</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Đại lý: @ViewBag.DaiLyName</li>
+                            <li class="list-group-item" style="color: #4CAF50;">Chứng nhận:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #4CAF50;">Hình ảnh</h4>
+                        <div>
+                            <!-- Hình ảnh chứng nhận -->
+                            @if (ViewBag.ChungNhanImg is not null)
+                            {
+                                <img src="@ViewBag.ChungNhanImg" alt="ChungNhan Image" class="img-thumbnail" style="width: 38%" />
+                            }
+                        </div>
+                        <div>
+                            <!-- Hình ảnh sản phẩm -->
+                            <h4 class="mt-3" style="color: #4CAF50;">Hình ảnh sản phẩm</h4>
+                            @if (Model.HinhAnhSp is not null)
+                            {
+                                <img src="@Model.HinhAnhSp" alt="Product Image" class="img-thumbnail" style="width: 50%" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col text-center">
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="Idsp" />
+                    <button type="submit" class="btn btn-danger">Xoá</button> |
+                    <a asp-action="Index" class="btn btn-primary">Trở về</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    
+}

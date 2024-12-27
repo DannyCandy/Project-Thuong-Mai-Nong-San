@@ -1,0 +1,90 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Trang đăng ký";
+}
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Tạo tài khoản mới</h3></div>
+                    <div class="card-body">
+                        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="Vui lòng nhập tên đăng nhập" />
+                                <label asp-for="UserName">Nhập tên đăng nhập</label>
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Input.TenKhachHang" class="form-control" autocomplete="tenKhachHang" aria-required="true" placeholder="Vui lòng nhập tên" />
+                                <label asp-for="Input.TenKhachHang">Nhập tên khách hàng</label>
+                                <span asp-validation-for="Input.TenKhachHang" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Input.DiaChi" class="form-control" autocomplete="diaChi" aria-required="true" placeholder="Vui lòng nhập địa chỉ" />
+                                <label asp-for="Input.DiaChi">Nhập địa chỉ</label>
+                                <span asp-validation-for="Input.DiaChi" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-2 mt-2">
+                                <input id="inputImg" type="file" asp-for="Input.Avatar" class="form-control" />
+                                <label asp-for="Input.Avatar">Vui lòng chọn hình ảnh đại diện</label>
+                                <span asp-validation-for="Input.Avatar" class="text-danger"></span>
+                            </div>
+                            <div class="mt-2 mb-2">
+                                <img id="imgViewer" class="img-thumbnail" alt="Product Image" src="~/images/0d64989794b1a4c9d89bff571d3d5842.jpg" style="max-width: 200px;" />
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Email" class="form-control" autocomplete="email" aria-required="true" placeholder="Vui lòng nhập email" />
+                                <label asp-for="Email">Nhập email</label>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select" aria-required="true">
+                                    <option disabled selected>Vui lòng chọn quyền</option>
+                                </select>
+                                <label asp-for="Input.Role"></label>
+                                <span asp-validation-for="Input.Role" class="text-danger"></span>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                                        <label asp-for="Input.Password">Nhập mật khẩu</label>
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                                        <label asp-for="Input.ConfirmPassword">Nhập lại mật khẩu</label>
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <div class="d-grid">
+                                    <button id="registerSubmit" type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <div class="small"><a asp-area="Identity" asp-page="/Account/Login">Bạn đã có tài khoản? Đi đến đăng nhập</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $("#inputImg").change((e) => {
+            var files = e.target.files;
+            $("#imgViewer").attr("src",window.URL.createObjectURL(files[0]))
+        })
+    </script>
+}

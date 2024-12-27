@@ -1,0 +1,183 @@
+﻿@model PaginatedList<SanPham>
+@{
+    SelectList categories = ViewBag.Categories;
+    Dictionary<string, int> productCounts = ViewBag.ProductCounts;
+    string IdCate = ViewBag.IdCate;
+    string IsLogout = ViewBag.IsLogout;
+}
+@{
+    ViewBag.PageType = "Home";
+}
+@* Xử lý nút prev và nút next *@
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<!--<!-- Hero Section -->
+<div class="container-fluid py-5 mb-5 hero-header bg-light">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h4 class="text-secondary mb-3">100% Thực phẩm hữu cơ</h4>
+                <h1 class="text-primary display-4 fw-bold mb-4">Thực phẩm hữu cơ từ rau củ & trái cây</h1>
+                <p class="mb-4">Chúng tôi mang đến thực phẩm tươi sạch, an toàn cho sức khỏe, được nuôi trồng theo tiêu chuẩn cao nhất.</p>
+                <a href="#products" class="btn btn-primary rounded-pill px-4 py-2">Khám phá ngay</a>
+            </div>
+            <div class="col-lg-6">
+                <div id="carouselId" class="carousel slide rounded shadow-sm overflow-hidden" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="~/Template/img/hero-img-1.png" class="w-100" alt="Trái cây">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Template/img/hero-img-2.jpg" class="w-100" alt="Rau củ">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container-fluid featurs py-5 bg-secondary text-white">
+    <div class="container">
+        <div class="row g-4 text-center">
+            @* Các tính năng được hiển thị rõ ràng *@
+            @foreach (var feature in new[] {
+            new { Icon = "fas fa-car-side", Title = "Miễn phí giao hàng", Description = "Đơn từ 300.000VND" },
+            new { Icon = "fas fa-user-shield", Title = "Thanh toán an toàn", Description = "100% bảo mật" },
+            new { Icon = "fas fa-exchange-alt", Title = "Đổi trả trong ngày", Description = "Hoàn tiền nếu hư hại" },
+            new { Icon = "fa fa-phone-alt", Title = "Hỗ trợ 24/7", Description = "Đội ngũ tận tâm" }
+            })
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 bg-light text-dark rounded">
+                        <div class="icon mb-3">
+                            <i class="@feature.Icon fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold">@feature.Title</h5>
+                        <p>@feature.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Fruits Shop Start-->
+<div div id="products" class="container-fluid fruite py-5">
+    <div class="container py-5">
+        <div class="tab-class text-center">
+            <div class="row g-4">
+                <div class="col-lg-4 text-start">
+                    <h1>Sản phẩm hữu cơ chất lượng</h1>
+                </div>
+                <div class="col-lg-8 text-end">
+                    <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-light rounded-pill @(IdCate == "" ? "active" : "")" href="@Url.Action("Index", new { pageIndex = 1 })">
+                                <span class="text-dark" style="width: 130px;">Tất cả sản phẩm</span>
+                            </a>
+                        </li>
+                        @foreach(var i in categories)
+                        {
+                            <li class="nav-item">
+                                <a class="d-flex py-2 m-2 bg-light rounded-pill @(IdCate == i.Value ? "active" : "")" href="@Url.Action("Index", new { pageIndex = 1, category = i.Value })">
+                                    <span class="text-dark" style="width: 130px;">
+                                        @i.Text
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content">
+                
+                <div class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                            @foreach (var product in Model)
+                            {
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="rounded position-relative fruite-item">
+                                        <div class="fruite-img">
+                                            <a asp-controller="Product" asp-action="Display" asp-route-id="@product.Idsp">
+                                                    <img src="@product.HinhAnhSp" class="img-fluid w-100 rounded-top" style="max-height: 180px!important" alt="Lỗi hình ảnh">
+                                            </a>
+                                        </div>
+                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
+                                            @*Xử lý lấy đúng category*@
+                                            @{
+                                                  string? categoryName = categories
+                                                .Cast<SelectListItem>()
+                                                .Where(item => item.Value == product.Idcategory)
+                                                .Select(item => item.Text)
+                                                .FirstOrDefault();
+                                            }
+                                            @categoryName
+                                        </div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h4>@product.SpName</h4>
+                                            <p>@product.MoTa</p>
+                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                    <p class="text-dark fs-5 fw-bold mb-0">
+                                                        @string.Format("{0:#,##0} VNĐ / kg", product.Price)
+                                                    </p>
+                                                <a class="btn border border-secondary rounded-pill px-3 text-primary" asp-controller="Product" asp-action="Display" asp-route-id="@product.Idsp"><i class="fab fa-searchengin"></i>   Xem chi tiết   </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                                <div class="col-12">
+                                    <div class="pagination d-flex justify-content-center mt-5">
+                                        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-category=@IdCate class="rounded @prevDisabled">
+                                            &laquo;
+                                        </a>
+                                        @for (int i = 1; i <= @Model.TotalPages; i++)
+                                        {
+                                            <a class="rounded page-link @(i == @Model.PageIndex ? "active" : "")"
+                                                href="@Url.Action("Index", new { pageIndex = i, category = IdCate })">
+                                                @i
+                                            </a>
+                                        }
+                                        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-category=@IdCate class="rounded @nextDisabled">
+                                            &raquo;
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>  
+        </div>
+    </div>
+</div>
+<!-- Fruits Shop End-->
+<style>
+    scroll-behavior: smooth;
+</style>
+@section Scripts{
+    <script>
+        const isLogout = @IsLogout;
+        if (isLogout) {
+            localStorage.removeItem("IdDaiLyCurrent");
+        }
+        document.querySelector('a[href="#products"]').addEventListener('click', function (e) {
+            e.preventDefault(); 
+            document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+        });
+
+    </script>
+}

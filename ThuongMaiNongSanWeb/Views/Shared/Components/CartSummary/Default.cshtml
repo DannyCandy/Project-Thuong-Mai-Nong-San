@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Cart
+
+
+@* <style>
+    .cart-wrapper {
+        position: relative;
+        display: flex;
+        width: 40px;
+        height: 40px;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+
+    .jbrHBQ {
+        color: rgb(255, 255, 255);
+        background: rgb(255, 66, 79);
+        height: 16px;
+        right: 0px;
+        top: -4px;
+        border-radius: 8px;
+        display: inline-block;
+        text-align: center;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 150%;
+        position: absolute;
+        padding: 0.5px 4px;
+    }
+</style> *@
+
+
+<a href="@Url.Action("Index", "ShoppingCart")" class="position-relative me-4 my-auto">
+    <i class="fa fa-shopping-cart fa-2x text-primary"></i> 
+    @if (Model.NumberOfItems > 0)
+    {
+        <span class="position-absolute bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-bold px-2"
+              style="top: -5px; right: -5px; height: 20px; min-width: 20px; font-size: 0.8rem;">
+            @Model.NumberOfItems
+        </span>
+    }
+</a>

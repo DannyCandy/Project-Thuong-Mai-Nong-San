@@ -1,0 +1,28 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+@* <ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+    @if (hasExternalLogins)
+    {
+        <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
+    }
+    <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
+</ul> *@
+<div class="list-group list-group-flush account-settings-links">
+    <a class="list-group-item list-group-item-action @ManageNavPages.IndexNavClass(ViewContext)" data-toggle="list" id="profile" asp-page="./Index">Thông tin cá nhân</a>
+    <a class="list-group-item list-group-item-action @ManageNavPages.EmailNavClass(ViewContext)" data-toggle="list" id="email" asp-page="./Email">Email người dùng</a>
+    <a class="list-group-item list-group-item-action @ManageNavPages.ChangePasswordNavClass(ViewContext)" data-toggle="list" id="change-password" asp-page="./ChangePassword">Mật khẩu</a>
+    @if (hasExternalLogins)
+    {
+        <a id="external-login" class="list-group-item list-group-item-action @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins" data-toggle="list">Tuỳ chọn đăng nhập</a>
+        
+    }
+    <a class="list-group-item list-group-item-action @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication" data-toggle="list">Xác thực 2 lớp</a>
+    <a class="list-group-item list-group-item-action @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData" data-toggle="list">Dữ liệu cá nhân</a>
+    <a class="list-group-item list-group-item-action @ManageNavPages.UserContactNavClass(ViewContext)" id="personal-contact-data" asp-page="./UserContact" data-toggle="list">Thông tin liên hệ</a>
+</div>

@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<WebApp.Models.ChungNhan>
+@section Styles {
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet" />
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Quản lý chứng nhận</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Quản lý chứng nhận</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Quản lý chứng nhận là nơi xem xét và cập nhật các chứng nhận được phép cho sản phẩm.
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a asp-action="Add" class="m-1 btn btn-success">
+                        <i class="fa-solid fa-circle-plus"></i> Thêm chứng nhận
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tất cả chứng nhận
+            </div>
+
+            <div class="card-body">
+                <table id="dataQuanlychungnhan" class="table table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Hình ảnh chứng nhận</th>
+                            <th>Mô tả</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var chungnhan in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (chungnhan.HinhAnhChungNhan is not null)
+                                    {
+                                        <img src="@chungnhan.HinhAnhChungNhan" alt="Hình ảnh chứng nhận" class="img-thumbnail border border-success mt-2" style="width: 200px" />
+                                    }
+                                </td>
+                                <td>@chungnhan.MoTa</td>
+                                <td>
+                                    <a asp-action="Update" asp-route-id="@chungnhan.IdchungNhan" class="m-1 btn btn-warning">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@chungnhan.IdchungNhan" class="m-1 btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataQuanlychungnhan').DataTable();
+        })
+    </script>
+}

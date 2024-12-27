@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Trang quản lý bài viết chuyên nghiệp" />
+    <meta name="author" content="WebNongSanXanh" />
+    <title>Trang quản lý bài viết</title>
+    <link href="~/Poster/StylePost.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .dropdown-menu a {
+            color: #2c3e50;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #f8f9fa;
+        }
+
+        .footer-admin {
+            background: #f8f9fa;
+            padding: 20px 0;
+        }
+
+        .sidenav-menu-heading {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #4e73df;
+        }
+
+        .sidenav-footer {
+            background: #f8f9fa;
+            padding: 20px;
+            border-top: 1px solid #e3e6f0;
+        }
+
+        .sidenav-footer-subtitle {
+            font-weight: 500;
+        }
+
+        .sidenav-footer-title {
+            font-weight: bold;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .main-header {
+            background: linear-gradient(90deg, #4e73df, #224abe);
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav navbar navbar-expand shadow justify-content-between navbar-light bg-white" id="sidenavAccordion">
+        @if ((await AuthorizationService.AuthorizeAsync(User, "RequirePoster")).Succeeded)
+        {
+            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/">TRANG QUẢN LÝ BÀI VIẾT</a>
+        }
+        else
+        {
+            <a type="button" class="btn btn-primary" asp-area="Manager" asp-controller="Manager" asp-action="Home">
+                <i class="bi bi-box-arrow-in-right"></i> Quay về trang đại lý
+            </a>
+        }
+
+        @if ((await AuthorizationService.AuthorizeAsync(User, "RequirePoster")).Succeeded)
+        {
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-2x text-primary me-2"></i>
+                        <span class="d-none d-md-inline">Xin chào @User.Identity.Name!</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <partial name="_LoginPartial" />
+                        <li><a class="dropdown-item" href="/">Quay lại Shop</a></li>
+                    </ul>
+                </li>
+            </ul>
+        }
+    </nav>
+
+    <div id="layoutSidenav">
+        @if ((await AuthorizationService.AuthorizeAsync(User, "RequirePoster")).Succeeded)
+        {
+            <div id="layoutSidenav_nav">
+                <nav class="sidenav shadow-right sidenav-light">
+                    <div class="sidenav-menu">
+                        <div class="nav accordion" id="accordionSidenav">
+                            <div class="sidenav-menu-heading">Phần danh sách bài viết</div>
+                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseNewSection" aria-expanded="false" aria-controls="collapseNewSection">
+                                <div class="nav-link-icon"><i data-feather="list"></i></div>
+                                Quản lý danh sách
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseNewSection" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/Poster/Poster/index">
+                                        <i class="fas fa-list"></i> Danh sách tất cả bài viết
+                                        <span class="badge bg-primary-soft text-primary ms-auto">Cập nhật</span>
+                                    </a>
+                                </nav>
+                            </div>
+                            <div class="sidenav-menu-heading">Phần đăng bài bài viết</div>
+                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                                <div class="nav-link-icon"><i data-feather="edit"></i></div>
+                                Quản lý viết bài
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/Poster/Poster/create">
+                                        <i class="fas fa-plus"></i> Tạo bài viết
+                                        <span class="badge bg-primary-soft text-primary ms-auto">Cập nhật</span>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidenav-footer">
+                        <div class="sidenav-footer-content">
+                            <div class="sidenav-footer-subtitle">Đăng nhập bởi:</div>
+                            <div class="sidenav-footer-title">@User.Identity.Name</div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        }
+        <div id="layoutSidenav_content">
+            <main>
+                <header class="main-header mb-4">
+                    <div class="container-xl px-4">
+                        <div class="text-center">
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "RequirePoster")).Succeeded)
+                            {
+                                <h1 class="text-white page-title">Chào mừng bạn đến với trang đăng bài viết!</h1>
+                                <p class="lead mb-0 text-white page-subtitle">Đây là nơi để bạn đăng bài quảng cáo cho sản phẩm của mình</p>
+                            }
+                            else
+                            {
+                                <h1 class="text-white page-title">Tìm kiếm nông trại!</h1>
+                                <p class="lead mb-0 text-white page-subtitle">Đây là nơi để bạn tìm kiếm nông trại</p>
+                            }
+                        </div>
+                    </div>
+                </header>
+                <div class="container-xl px-4">
+                    @RenderBody()
+                </div>
+            </main>
+            <footer class="footer-admin mt-auto footer-light">
+                <div class="container-xl px-4">
+                    <div class="row">
+                        <div class="col-md-6 small">Website Nong San Xanh 2024</div>
+                        <div class="col-md-6 text-md-end small">
+                            <a href="#!">WebPro</a> · <a href="#!">DesignNongSanXanh</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://assets.startbootstrap.com/js/sb-customizer.js"></script>
+    <sb-customizer project="sb-admin-pro"></sb-customizer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

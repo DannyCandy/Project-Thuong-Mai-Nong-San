@@ -1,0 +1,100 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    SelectList categories = ViewBag.Categories;
+    SelectList chungNhans = ViewBag.ChungNhans;
+}
+@model IEnumerable<WebApp.Models.SanPham>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Kiểm duyệt sản phẩm của đại lý
+    </div>
+    <div class="card-body">
+        <table id="datatablesChecking">
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá tiền</th>
+                    <th>Mô tả sản phẩm</th>
+                    <th>Công dụng</th>
+                    <th>Thành phần dinh dưỡng</th>
+                    <th>Hướng dẫn sử dụng</th>
+                    <th>Số lượng</th>
+                    <th>Loại sản phẩm</th>
+                    <th>Nhà phân phối</th>
+                    <th>Chứng nhận</th>
+                    <th>Hình ảnh</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá tiền</th>
+                    <th>Mô tả sản phẩm</th>
+                    <th>Công dụng</th>
+                    <th>Thành phần dinh dưỡng</th>
+                    <th>Hướng dẫn sử dụng</th>
+                    <th>Số lượng</th>
+                    <th>Loại sản phẩm</th>
+                    <th>Chứng nhận</th>
+                    <th>Hình ảnh</th>
+                    <th>Hành động</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+
+                        <td>@product.SpName</td>
+                        <td>@product.Price</td>
+                        <td>@product.MoTa</td>
+                        <td>@product.CongDung</td>
+                        <td>@product.ThanhPhanDinhDuong</td>
+                        <td>@product.Hdsd</td>
+                        <td>@product.SoLuongSp</td>
+                        <td>
+                            @{
+                                string? categoryName = categories
+                                .Cast<SelectListItem>()
+                                .Where(item => item.Value == product.Idcategory)
+                                .Select(item => item.Text)
+                                .FirstOrDefault();
+                            }
+                            @categoryName
+                        </td>
+                        <td>
+                            @{
+                                string? chungNhanImg = chungNhans
+                                .Cast<SelectListItem>()
+                                .Where(item => item.Value == product.IdchungNhan)
+                                .Select(item => item.Text)
+                                .FirstOrDefault();
+                            }
+                            @if (chungNhanImg is not null)
+                            {
+                                <img src="@chungNhanImg" alt="Product Image" class="img-thumbnail mt-2" style="max-width: 100px" />
+                            }
+                        </td>
+                        <td>
+                            @if (product.HinhAnhSp is not null)
+                            {
+                                <img src="@product.HinhAnhSp" alt="Product Image" class="img-thumbnail mt-2" style="max-width: 100px" />
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="SetConfirm" asp-route-id="@product.Idsp" class="btn btn-warning m-1">Xác nhận</a>
+                            <a asp-action="SetNoConfirm" asp-route-id="@product.Idsp" class="btn btn-danger m-1">Hủy bỏ</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/admin/js/check-product-demo.js"></script>
+}

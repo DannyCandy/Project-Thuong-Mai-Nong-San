@@ -1,0 +1,134 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    SelectList categories = ViewBag.Categories;
+    SelectList chungNhans = ViewBag.ChungNhans;
+    string daiLyName = ViewBag.DaiLys;
+}
+@model IEnumerable<WebApp.Models.SanPham>
+@section Styles {
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet" />
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Đại lý: @daiLyName</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Quản lý Sản phẩm Của Đại Lý</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Đây là những sản phẩm của đại lý đã có trong năm 2024
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Sản phẩm
+            </div>
+
+            <div class="card-body">
+                <table id="dataProduct" class="table table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá cả</th>
+                            <th>Mô tả</th>
+                            <th>Hình ảnh sản phẩm</th>
+                            <th>Công dụng</th>
+                            <th>Thành phần dinh dưỡng</th>
+                            <th>Chứng nhận</th>
+                            <th>Loại sản phầm</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>@product.SpName</td>
+                                <td>@product.Price</td>
+                                <td>@product.MoTa</td>
+                                <td>
+                                    @if (product.HinhAnhSp is not null)
+                                    {
+                                        <img src="@product.HinhAnhSp" alt="Product Image" class="img-thumbnail mt-2" style="max-width: 100px" />
+                                    }
+                                </td>
+                                <td>@product.CongDung</td>
+                                <td>@product.ThanhPhanDinhDuong</td>
+                                <td>
+                                    @{
+                                        string? chungNhanImg = chungNhans
+                                        .Cast<SelectListItem>()
+                                        .Where(item => item.Value == product.IdchungNhan)
+                                        .Select(item => item.Text)
+                                        .FirstOrDefault();
+                                    }
+                                    @if (chungNhanImg is not null)
+                                    {
+                                        <img src="@chungNhanImg" alt="Product Image" class="img-thumbnail mt-2" style="max-width: 100px" />
+                                    }
+                                </td>
+                                <td>
+                                    @{
+                                        string? categoryName = categories
+                                        .Cast<SelectListItem>()
+                                        .Where(item => item.Value == product.Idcategory)
+                                        .Select(item => item.Text)
+                                        .FirstOrDefault();
+                                    }
+                                    @categoryName
+                                </td>
+                                <td>
+                                    <a asp-action="Display" asp-route-id="@product.Idsp" class="m-1 btn btn-info">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </a>
+                                    <a asp-action="Update" asp-route-id="@product.Idsp" class="m-1 btn btn-primary">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@product.Idsp" class="m-1 btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+
+                                    @* @if (!product.Confirm)
+                                {
+                                <a asp-action="Delete" asp-route-id="@product.Idsp" class="m-1 btn btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                                </a>
+                                } *@
+                                    @if (product.Confirm)
+                                    {
+                                        <a class="m-1 btn btn-success" data-toggle="tooltip" data-placement="left" title="Sản phẩm đã phê duyệt">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="m-1 btn btn-warning" data-toggle="tooltip" data-placement="left" title="Sản phẩm chưa phê duyệt">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a asp-action="Add" class="mt-2 btn btn-primary">
+                    <i class="fa-solid fa-circle-plus"></i> Tạo sản phẩm mới
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataProduct').DataTable();
+        })
+    </script>
+}

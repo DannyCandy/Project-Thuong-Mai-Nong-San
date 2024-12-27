@@ -1,0 +1,212 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string NameDaiLy = ViewBag.NameDaiLy;
+    string idDaiLy = ViewBag.IdDaiLy;
+    string idUser = ViewBag.IdUser;
+}
+<link href="~/admin/css/stylechart.css" rel="stylesheet">
+<main>
+    <div class="container-fluid px-4">
+        <!-- Tiêu đề chính -->
+        <h1 class="mt-4 display-4 fw-bold text-primary">
+            Đại lý: <span class="text-dark">@NameDaiLy</span>
+        </h1>
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb mb-4 bg-light p-3 rounded shadow-sm">
+            <li class="breadcrumb-item active">
+                <span class="fw-medium">Xin chào,</span>
+                <span class="text-primary">@NameDaiLy</span>!
+            </li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Tổng hợp các biểu đồ doanh thu và số lượng sản phẩm bán ra trong các tháng của năm 2024
+            </div>
+        </div>
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <i class="fas fa-filter me-2"></i>Lọc Dữ Liệu
+            </div>
+            <div class="card-body">
+                <form id="filterForm" class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label for="startMonth" class="form-label fw-semibold">Tháng bắt đầu:</label>
+                        <select id="startMonth" class="form-select" aria-label="Chọn tháng bắt đầu">
+                            <option value="" disabled selected>Chọn tháng</option>
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="endMonth" class="form-label fw-semibold">Tháng kết thúc:</label>
+                        <select id="endMonth" class="form-select" aria-label="Chọn tháng kết thúc">
+                            <option value="" disabled selected>Chọn tháng</option>
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button id="filterBtn" type="button" class="btn btn-success px-4">
+                            <i class="fas fa-search me-2"></i>Lọc dữ liệu
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+                   
+        <div class="row mt-4">
+            <!-- Tổng doanh thu -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">
+                            <i class="fas fa-coins me-2"></i>Tổng Doanh Thu Bán Ra
+                        </h5>
+                        <p class="mb-2">Từ tháng <span id="startMonthValue">0</span> đến tháng <span id="endMonthValue">0</span></p>
+                        <h4 id="totalRevenue" class="text-success fw-bold">0</h4>
+                        <p class="text-muted">VNĐ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tổng sản phẩm -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">
+                            <i class="fas fa-box-open me-2"></i>Tổng Số Lượng Sản Phẩm Bán Ra
+                        </h5>
+                        <p class="mb-2">Từ tháng <span id="startMonthValue2">0</span> đến tháng <span id="endMonthValue2">0</span></p>
+                        <h4 id="totalQuantity" class="text-success fw-bold">0</h4>
+                        <p class="text-muted">sản phẩm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-area me-1"></i>
+                Biểu đồ thống kê tổng số tiền của sản phẩm bán ra theo từng tháng trong năm 2024
+            </div>
+            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            <div class="card-footer small text-muted"></div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-bar me-1"></i>
+                Biểu đồ thống kê số lượng sản phẩm bán ra theo từng tháng trong năm 2024
+            </div>
+            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+            <div class="card-footer small text-muted"></div>
+        </div> 
+    </div>
+</main>
+
+@section Scripts{
+    <script>
+        if (localStorage.getItem('IdDaiLyCurrent') === null) {
+            localStorage.setItem('IdDaiLyCurrent', '@idDaiLy');
+        }
+    </script>
+    <script>console.log('IdDaiLy: ' + '@idDaiLy')</script>
+    <script src="~/admin/assets/demo/chart-area-demo-v2.js"></script>
+    <script src="~/admin/assets/demo/chart-bar-demo-v2.js"></script>
+    <script>
+        document.getElementById('filterBtn').addEventListener('click', async () => {
+            const startMonth = document.getElementById('startMonth').value;
+            const endMonth = document.getElementById('endMonth').value;
+            const idDaiLy = '@idDaiLy';
+            const year = 2024;
+
+            if (!startMonth || !endMonth || parseInt(startMonth) > parseInt(endMonth)) {
+                alert('Vui lòng chọn khoảng tháng hợp lệ.');
+                return;
+            }
+
+            // Cập nhật giá trị tháng bắt đầu và kết thúc vào giao diện
+            document.getElementById('startMonthValue').innerText = startMonth;
+            document.getElementById('endMonthValue').innerText = endMonth;
+
+            // Cập nhật giá trị tháng bắt đầu và kết thúc vào giao diện
+            document.getElementById('startMonthValue2').innerText = startMonth;
+            document.getElementById('endMonthValue2').innerText = endMonth;
+
+            // Gọi API để lấy dữ liệu tổng doanh thu
+            const totalPriceResponse = await fetch(`/api/productsDaiLy/total-price/${year}/${idDaiLy}`);
+            const totalPriceData = await totalPriceResponse.json();
+
+            // Gọi API để lấy dữ liệu tổng số lượng sản phẩm
+            const totalQuantityResponse = await fetch(`/api/productsDaiLy/total-quantity/${year}/${idDaiLy}`);
+            const totalQuantityData = await totalQuantityResponse.json();
+
+            // Lọc dữ liệu theo tháng bắt đầu và tháng kết thúc
+            const filteredTotalPrice = totalPriceData.filter(
+                item => item.month >= parseInt(startMonth) && item.month <= parseInt(endMonth)
+            );
+
+            const filteredTotalQuantity = totalQuantityData.filter(
+                item => item.month >= parseInt(startMonth) && item.month <= parseInt(endMonth)
+            );
+
+            // Cập nhật tổng doanh thu và số lượng sản phẩm bán ra
+            const totalRevenue = filteredTotalPrice.reduce((sum, item) => sum + item.totalPrice, 0);
+            const totalQuantity = filteredTotalQuantity.reduce((sum, item) => sum + item.totalQuantity, 0);
+
+            // Cập nhật lên giao diện
+            document.getElementById('totalRevenue').innerText = totalRevenue.toLocaleString('vi-VN');
+            document.getElementById('totalQuantity').innerText = totalQuantity;
+
+            // Cập nhật biểu đồ
+            updateAreaChart(filteredTotalPrice);
+            updateBarChart(filteredTotalQuantity);
+        });
+
+
+
+        function updateAreaChart(data) {
+            const labels = data.map(item => `Tháng ${item.month}`);
+            const values = data.map(item => item.totalPrice);
+
+            const ctx = document.getElementById('myAreaChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Tổng doanh thu bán ra',
+                        data: values,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    }]
+                },
+            });
+        }
+
+        function updateBarChart(data) {
+            const labels = data.map(item => `Tháng ${item.month}`);
+            const values = data.map(item => item.totalQuantity);
+
+            const ctx = document.getElementById('myBarChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Tổng số lượng sản phẩm bán ra',
+                        data: values,
+                        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1,
+                    }]
+                },
+            });
+        }
+    </script>
+}

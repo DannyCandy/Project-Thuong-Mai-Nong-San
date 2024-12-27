@@ -1,0 +1,163 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model PaginatedList<Order>
+@{
+    int month = ViewBag.Month;
+    int year = ViewBag.Year;
+    int index = 1;
+}
+@* Xử lý nút prev và nút next *@
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Trang chủ lịch sử đặt hàng</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+        <li class="breadcrumb-item active text-white">Lịch sử đặt hàng</li>
+    </ol>
+</div>
+
+<div class="container">
+    <form id="submitForm" asp-controller="User" asp-action="OrderHistory" method="GET">
+        <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Trở về trang chủ</a>
+            <div class="d-flex">
+                <select id="monthSelect" name="month" class="form-select w-auto me-2">
+                    <option value="1">Tháng 1</option>
+                    <option value="2">Tháng 2</option>
+                    <option value="3">Tháng 3</option>
+                    <option value="4">Tháng 4</option>
+                    <option value="5">Tháng 5</option>
+                    <option value="6">Tháng 6</option>
+                    <option value="7">Tháng 7</option>
+                    <option value="8">Tháng 8</option>
+                    <option value="9">Tháng 9</option>
+                    <option value="10">Tháng 10</option>
+                    <option value="11">Tháng 11</option>
+                    <option value="12">Tháng 12</option>
+                </select>
+
+                <select id="yearSelect" name="year" class="form-select w-auto me-2">
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                </select>
+
+                <input type="submit" value="Tra cứu" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>
+@if (Model.Count == 0)
+{
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <h3 class="text-secondary">Hiện không có lịch sử mua hàng.</h3>
+        </div>
+    </div>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="card mt-2 mb-2" style="margin: auto; border: 2px solid #28a745; width: 1350px">
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col" colspan="2">Tên sản phẩm</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            index = 1;
+                        }
+                        @foreach (var detail in item.OrderDetails)
+                        {
+                            <tr>
+                                <th scope="row">@index</th>
+                                <td colspan="2">@detail.IdspNavigation.SpName</td>
+                                <td>@detail.IdspNavigation.Price.ToString("#,##0") VND/kg</td>
+                                <td>@detail.Quantity</td>
+                                <td>@detail.IdspNavigation.Price.ToString("#,##0") VND/kg</td>
+                            </tr>
+                            index++;
+                        }
+                        <tr>
+                            <td colspan="3"></td>
+                            <td>Phương thức thanh toán: @item.PaymentMethod</td>
+                            <td>Tổng giá trị:</td>
+                            <td>@item.TotalPrice.ToString("#,##0") VND/kg</td>
+                        </tr>
+                        <tr class="table-active table-info">
+                            <td></td>
+                            <td colspan="2">OrderId: @item.OrderId</td>
+                            @if (item.Success)
+                            {
+                                <td>Trạng thái:  <span class="badge bg-success fw-bold fs-6">Thành công</span></td>
+                            }
+                            else
+                            {
+                                <td>Trạng thái:  <span class="badge bg-danger fw-bold fs-6">Không thành công</span></td>
+                            }
+                            <td colspan="2">Ngày tạo: @item.OrderTime.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+
+    <div class="container py-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-12">
+                <div class="pagination d-flex justify-content-center">
+                    <a asp-action="OrderHistory" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-month=@month asp-route-year=@year class="rounded @prevDisabled">
+                        &laquo;
+                    </a>
+                    @for (int i = 1; i <= @Model.TotalPages; i++)
+                    {
+                        <a class="rounded page-link @(i == @Model.PageIndex ? "active" : "")"
+                           href="@Url.Action("OrderHistory", new { pageIndex = i , month = month, year = year })">
+                            @i
+                        </a>
+                    }
+                    <a asp-action="OrderHistory" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-month=@month asp-route-year=@year class="rounded @nextDisabled">
+                        &raquo;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts{
+    <script>
+        // Lấy thẻ select của tháng và năm
+        var monthSelect = document.getElementById("monthSelect");
+        var yearSelect = document.getElementById("yearSelect");
+
+        // Thiết lập thuộc tính selected cho tháng
+        for (var i = 0; i < monthSelect.options.length; i++) {
+            if (monthSelect.options[i].value == @month) {
+                monthSelect.options[i].selected = true;
+                break;
+            }
+        }
+
+        // Thiết lập thuộc tính selected cho năm
+        for (var i = 0; i < yearSelect.options.length; i++) {
+            if (yearSelect.options[i].value == @year) {
+                yearSelect.options[i].selected = true;
+                break;
+            }
+        }
+    </script>
+}

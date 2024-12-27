@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<WebApp.Models.SanPham>
+@section Styles {
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet" />
+}
+@{
+    SelectList categories = ViewBag.Categories;
+    SelectList chungNhans = ViewBag.ChungNhans;
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Quản lý sản phẩm</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Quản lý sản phẩm</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Quản lý sản phẩm là nơi xem xét và cập nhật sản phẩm đến với người dùng.
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tất cả sản phẩm
+            </div>
+
+            <div class="card-body">
+                <table id="dataQuanlysanpham" class="table table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Công dụng</th>
+                            <th>Thành phần dinh dưỡng</th>
+                            <th>Giá</th>
+                            <th>Phân loại</th>
+                            <th>Chứng nhận</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>@product.SpName</td>
+                                <td>
+                                    @if (product.HinhAnhSp is not null)
+                                    {
+                                        <img src="@product.HinhAnhSp" alt="Hình ảnh sp" class="img-thumbnail mt-2" style="max-width: 100px" />
+                                    }
+                                </td>
+                                <td>@product.CongDung</td>
+                                <td>@product.ThanhPhanDinhDuong</td>
+                                <td>@product.Price</td>
+                                <td>
+                                    @{
+                                        string? categoryName = categories
+                                        .Cast<SelectListItem>()
+                                        .Where(item => item.Value == product.Idcategory)
+                                        .Select(item => item.Text)
+                                        .FirstOrDefault();
+                                    }
+                                    @categoryName
+                                </td>
+                                <td>
+                                    @{
+                                        string? chungNhanImg = chungNhans
+                                        .Cast<SelectListItem>()
+                                        .Where(item => item.Value == product.IdchungNhan)
+                                        .Select(item => item.Text)
+                                        .FirstOrDefault();
+                                    }
+                                    @if (chungNhanImg is not null)
+                                    {
+                                        <img src="@chungNhanImg" alt="Chứng nhận" class="img-thumbnail mt-2" style="width: 100px" />
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-action="Display" asp-route-id="@product.Idsp" class="m-1 btn btn-info">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </a>
+                                    <a asp-action="Update" asp-route-id="@product.Idsp" class="m-1 btn btn-warning">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@product.Idsp" class="m-1 btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataQuanlysanpham').DataTable();
+        })
+    </script>
+}

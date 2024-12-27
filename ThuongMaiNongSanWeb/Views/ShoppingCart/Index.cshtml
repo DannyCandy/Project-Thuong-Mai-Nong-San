@@ -1,0 +1,110 @@
+﻿@using WebApp.Models
+@model ShoppingCart
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Giỏ Hàng</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="/Product/index">Trang mua sắm</a></li>
+        <li class="breadcrumb-item active text-white">Giỏ hàng</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="bg-light">
+                    <tr>
+                        <th scope="col">Loại sản phẩm</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Giá tiền</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Tổng Tiền</th>
+                        <th scope="col">Xoá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <th scope="row">
+                                <div class="d-flex align-items-center">
+                                    <img src="@item.ProductImg" class="img-fluid rounded" style="width: 80px; height: 80px;" alt="Product Image">
+                                </div>
+                            </th>
+                            <td>
+                                <p class="mb-0 mt-4">@item.Name</p>
+                            </td>
+                            <td>
+                                <p id="tdPrice_@item.ProductId" class="mb-0 mt-4">
+                                    @(item.Price.ToString("#,##0") + " VND / kg")
+                                </p>
+                            </td>
+                            <td>
+                                <input id="txtQuantity_@item.ProductId" onchange="updateCart('@item.ProductId')" type="number" min="1" name="txtQuantity" value="@item.Quantity" class="form-control mb-0 mt-4 text-center" />
+                            </td>
+                            <td>
+                                <p id="tdTotal_@item.ProductId" class="mb-0 mt-4">@string.Format("{0:#,##0} VND", item.Price * item.Quantity)</p>
+                            </td>
+                            <td>
+                                <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" class="btn btn-outline-danger btn-sm rounded-circle mt-4" title="Xoá sản phẩm">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cart total -->
+        <div class="row g-4 justify-content-end">
+            <div class="col-12 col-sm-8 col-md-7 col-lg-6 col-xl-4 d-flex justify-content-between">
+                <!-- Button Quay về mua sắm -->
+                <a class="btn btn-outline-secondary rounded-pill px-4 py-2 text-primary text-uppercase mb-4 ms-4" asp-controller="Product" asp-action="Index" asp-route-pageIndex="1">
+                    <i class="fa fa-arrow-left"></i> Quay về mua sắm
+                </a>
+                <!-- Button Đến trang thanh toán -->
+                <a class="btn btn-primary rounded-pill px-4 py-2 text-uppercase mb-4 ms-4" asp-controller="ShoppingCart" asp-action="Checkout">
+                    <i class="fa fa-credit-card"></i> Đến trang thanh toán
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart Page End -->
+@section Scripts {
+    <script>
+        function updateCart(productId) {
+            var quantity = document.getElementById('txtQuantity_' + productId).value;
+            if (quantity == 0) {
+                alert('Số lượng không thể nhận giá trị 0');
+                document.getElementById('txtQuantity_' + productId).value = 1; // Reset giá trị về 1 hoặc giá trị mặc định khác nếu cần
+                quantity = 1;
+            }
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/ShoppingCart/UpdateCart?productId=' + productId + '&quantity=' + quantity, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.success) {
+                            var price = response.price;
+                            var quantity = response.quantity;
+                            document.getElementById('tdPrice_' + productId).innerText = parseFloat(price).toFixed(0) + " VND";
+                            document.getElementById('tdTotal_' + productId).innerText = parseFloat(price * quantity).toFixed(0) + " VND";
+                        } else {
+                            console.error('Failed to update cart.');
+                        }
+                    } else {
+                        console.error('Error updating cart: ' + xhr.status);
+                    }
+                }
+            };
+            xhr.send();
+        }
+    </script>
+}

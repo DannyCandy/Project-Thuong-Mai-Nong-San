@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string mesErr = ViewBag.ErrMes;
+}
+<div class="container">
+    <h1 class="display-5 text-center">Lỗi khi gửi email</h1>
+    <hr />
+    <div class="d-flex justify-content-center">
+        <div class="col-md-4">
+            <div class="alert alert-success" role="alert">
+                <p>
+                    Gửi email không thành công<br />
+                    Lỗi: @mesErr
+                </p>
+            </div>
+
+            <div class="text-center">
+                <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-secondary">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

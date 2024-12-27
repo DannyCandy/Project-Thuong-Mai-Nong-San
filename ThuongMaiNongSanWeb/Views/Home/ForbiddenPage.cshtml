@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Lỗi 403</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home", new { area = "" })">Trang chủ</a></li>
+        <li class="breadcrumb-item active text-white">403</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<!-- 404 Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
+                <h1 class="display-1">403</h1>
+                <h1 class="mb-4">Không được phép truy cập trang này</h1>
+                <p class="mb-4">Có lẽ bạn chưa đăng kí dịch vụ <b>Trở thành đại lý</b> của chúng tôi.<br> Hãy chọn mục "<b>Trở thành đại lý</b>" trên menu người dùng và làm theo hướng dẫn<br> để mở khóa trang này.</p>
+                <a class="btn border-secondary rounded-pill py-3 px-5" href="@Url.Action("Index", "Home", new { area = "" })">Trở về trang chủ</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 404 End -->

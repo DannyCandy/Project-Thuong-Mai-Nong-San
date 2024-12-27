@@ -1,0 +1,221 @@
+﻿@{
+    var pageType = ViewBag.PageType as string ?? "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shop nông sản xanh</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="icon" type="image/x-icon" href="~/images/essential-oil.png"/>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/Template/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="~/Template/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/Template/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/Template/css/style.css" rel="stylesheet">
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-7">
+    </div>
+    <!-- Single Page Header End -->
+    <!-- Navbar start -->
+    <div class="container-fluid fixed-top">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">HitTown 1, phường Hiệp Phú, Quận 9</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">NongSanXanh@gmail.com</a></small>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <a href="/" class="navbar-brand"><h1 class="text-primary display-6">Shop Nông Sản Xanh</h1></a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="/Home/Index" class="nav-item nav-link @(ViewBag.PageType == "Home" ? "active":"")">Trang chủ</a>
+                        <a href="/Product/Index?pageIndex=1" class="nav-item nav-link @(ViewBag.PageType == "Shop" ? "active":"")">Trang mua sắm</a>
+                        <a href="/ShoppingCart/Index" class="nav-item nav-link @(ViewBag.PageType == "Trang giỏ hàng" ? "active":"")">Trang giỏ hàng</a>                     
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "CheckingAgency")).Succeeded)
+                        {
+                            <a asp-area="Manager" asp-controller="Manager" asp-action="Home" class="nav-item nav-link @(ViewBag.PageType == "Trang chủ đại lý" ? "active":"")">Trang chủ đại lý</a>
+                        }
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "RequireAdmin")).Succeeded)
+                        {
+                            <a asp-area="Admin" asp-controller="DashBoard" asp-action="Statistics" class="nav-item nav-link @(ViewBag.PageType == "Trang chủ Admin" ? "active":"")">Trang chủ Admin</a>
+                        }
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "RequirePoster")).Succeeded)
+                        {
+                            <a asp-area="Poster" asp-controller="Poster" asp-action="Index" class="nav-item nav-link @(ViewBag.PageType == "Trang chủ Quản lý bài viết" ? "active":"")">Quản lý bài viết</a>   
+                        }
+                    </div>
+                    <div class="d-flex m-3 me-0">
+                        @await Component.InvokeAsync("CartSummary")
+                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user-circle fa-2x text-primary me-2"></i> 
+                                    <span class="d-none d-md-inline">Xin chào @User.Identity.Name!</span> 
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="navbarDropdown">
+                                    <partial name="_LoginPartial" /> 
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+        @RenderBody()
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5);">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <h1 class="text-primary mb-0">Shop Nông Sản</h1>
+                            <p class="text-secondary mb-0">Sản phẩm xanh - sạch - ngon</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative mx-auto">
+                            <!-- Optional: add a search bar or logo here -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-lg-end">
+                        <div class="d-flex justify-content-lg-end justify-content-start">                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Về Chúng Tôi</h4>
+                        <p>Shop Nông Sản Xanh cam kết cung cấp những sản phẩm tươi ngon và chất lượng nhất đến với khách hàng.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Thông Tin</h4>
+                        <a class="text-white-50 mb-2" href="#">Giới thiệu</a>
+                        <a class="text-white-50 mb-2" href="#">Dịch vụ</a>
+                        <a class="text-white-50 mb-2" href="#">Bảo mật</a>
+                        <a class="text-white-50" href="#">Điều khoản</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Hỗ Trợ</h4>
+                        <a class="text-white-50 mb-2" href="#">Câu hỏi thường gặp</a>
+                        <a class="text-white-50 mb-2" href="#">Liên hệ</a>
+                        <a class="text-white-50 mb-2" href="#">Chính sách đổi trả</a>
+                        <a class="text-white-50" href="#">Hướng dẫn mua hàng</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Liên Hệ</h4>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>113 Tân Lập 1, phường Hiệp Phú, Quận 9</p>
+                        <p><i class="fas fa-envelope me-2"></i>NongSanXanh113@gmail.com</p>
+                        <p><i class="fas fa-phone me-2"></i>+845 057 922</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Website Nông Sản Xanh</a>, 2024.</span>
+                </div>
+                <div class="col-md-6 my-auto text-center text-md-end text-white">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                    Designed By <a class="border-bottom" href="#">TeamNongSanhXanh</a> Distributed By <a class="border-bottom" href="https://themewagon.com">NongSanXanhPro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+    <!-- Back to Top -->
+    <!--<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>-->
+    
+    <style>
+        /* Định dạng nút Chatbot */
+        df-messenger {
+            --df-messenger-bot-message: #f0f0f0; /* Màu nền cho tin nhắn của bot */
+            --df-messenger-button-titlebar-color: #4CAF50; /* Màu thanh tiêu đề */
+            --df-messenger-button-titlebar-text-color: white; /* Màu chữ tiêu đề */
+            --df-messenger-chat-background-color: #ffffff; /* Màu nền cửa sổ chat */
+            --df-messenger-font-color: #333; /* Màu chữ */
+            --df-messenger-send-icon: #4CAF50; /* Màu nút gửi */
+            --df-messenger-user-message: #4CAF50; /* Màu nền tin nhắn của người dùng */
+            --df-messenger-button-background-color: #4CAF50; /* Màu nền của nút */
+        }
+    </style>
+
+    <!-- Phần chat bot của Ducdeptrai -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger intent="WELCOME"
+                  chat-title="Chat với Shop Nông Sản Xanh"
+                  chat-title-color="green"
+                  agent-id="3d1466be-b4aa-44ce-b96d-d1de307e3f2f"
+                  language-code="vi"
+                  style="width: 100px; height: 200px; position: fixed; bottom: 15px; right: 15px; z-index: 1111;">
+    </df-messenger>
+
+    <!-- Phần chat bot của Ducdeptrai -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Template/lib/easing/easing.min.js"></script>
+    <script src="~/Template/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/Template/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="~/Template/lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- Template Javascript -->
+    <script src="~/Template/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

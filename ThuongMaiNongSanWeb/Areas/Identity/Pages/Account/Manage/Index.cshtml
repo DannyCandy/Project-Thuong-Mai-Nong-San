@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Trang cá nhân người dùng";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<form id="profile-form" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Input.CustomerName" class="form-control"/>
+                <label asp-for="Input.CustomerName" class="form-label"></label>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.Address" class="form-control"/>
+                <label asp-for="Input.Address" class="form-label"></label>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Username" class="form-control" disabled />
+                <label asp-for="Username" class="form-label">Tên đăng nhập</label>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <label asp-for="Input.PhoneNumber" class="form-label">Số điện thoại</label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Lưu thông tin</button>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Input.Avatar" class="w-100"></label>
+                @if (Model.Input.Avatar != null)
+                {
+                    <img id="profilePicture" alt="profile" class="img-thumbnail" style="max-height: 200px ;object-fit: cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.Avatar))"/>
+                }else{
+                    <img id="profilePicture" alt="profile" class="img-thumbnail" style="max-height: 200px ;object-fit: cover" src="~/images/0d64989794b1a4c9d89bff571d3d5842.jpg" />
+                }
+                <div class="custom-file mt-2">
+                    <input type="file" accept="image/*" asp-for="Input.Avatar"
+                        class="custom-file-input border border-2 border-primary"
+                        onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                    <span asp-validation-for="Input.Avatar" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div> 
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

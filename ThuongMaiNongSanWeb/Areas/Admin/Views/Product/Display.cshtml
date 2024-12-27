@@ -1,0 +1,152 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model WebApp.Models.SanPham
+@{
+    SelectList categories = ViewBag.Categories;
+
+    SelectList chungNhans = ViewBag.ChungNhans;
+    SelectList chungNhanHinhAnhs = ViewBag.ChungNhanHinhAnhs;
+
+    SelectList daiLys = ViewBag.DaiLys;
+}
+<main>
+    <div class="container-fluid py-4">
+        <div class="container py-5 border border-2 rounded-4 border-success">
+            <div class="row g-4">
+                <div class="col-lg-12 col-xl-12">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="border rounded">
+                                <a href="#">
+                                    <img src="@Model.HinhAnhSp" class="img-fluid rounded" alt="Image">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h4 class="fw-bold mb-3 text-success font-monospace">@Model.SpName</h4>
+                            <p class="mb-3">
+                                <b>Phân loại:</b>
+                                @{
+                                    string? categoryName = categories
+                                    .Cast<SelectListItem>()
+                                    .Where(item => item.Value == Model.Idcategory)
+                                    .Select(item => item.Text)
+                                    .FirstOrDefault();
+                                }
+                                @categoryName
+                            </p>
+                            <h5 class="fw-bold mb-3">@string.Format("{0:#,##0} VNĐ / kg", @Model.Price)</h5>
+                            <div class="d-flex mb-4">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                            <p class="mb-4">@Model.MoTa</p>
+                            <p class="mb-4"><b>Công dụng:</b> @Model.CongDung</p>
+                            <p class="mb-4"><b>Số lượng:</b> @Model.SoLuongSp</p>
+                            <p class="mb-4"><b>Hướng dẫn sử dụng:</b> @Model.Hdsd</p>
+                            <a asp-action="Update" asp-route-id="@Model.Idsp" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-warning"><i class="fa-solid fa-pen-nib text-warning"></i> Cập nhật</a>
+                            <a asp-action="Index" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fas fa-undo me-2 text-primary"></i> Trở lại danh sách</a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-danger" data-bs-toggle="modal" data-bs-target="#delModal">
+                                <i class="fa-solid fa-trash text-danger"></i> Xóa
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Bạn có chắc chắn muốn xóa sản phẩm này?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Trở về</button>
+                                            <a asp-action="SoftDelete" asp-route-id="@Model.Idsp" class="btn btn-danger">Xóa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <nav>
+                                <div class="nav nav-tabs">
+                                    <button class="nav-link active border border-secondary border-bottom-0" type="button" role="tab"
+                                            id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                                            aria-controls="nav-about" aria-selected="true">
+                                        Thành phần dinh dưỡng
+                                    </button>
+                                    <button class="nav-link border border-secondary border-bottom-0" type="button" role="tab"
+                                            id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
+                                            aria-controls="nav-mission" aria-selected="false">
+                                        Công bố
+                                    </button>
+                                </div>
+                            </nav>
+                            <div class="tab-content border border-top-0 border-secondary p-3">
+                                <!--Thành phần dinh dưỡng tab-->
+                                <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                    <p>
+                                        @Model.ThanhPhanDinhDuong
+                                    </p>
+                                </div>
+                                <!--Công bố tab-->
+                                <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                                    <div class="d-flex">
+                                        @{
+                                            string? chungNhanHinhAnh = chungNhanHinhAnhs
+                                            .Cast<SelectListItem>()
+                                            .Where(item => item.Value == Model.IdchungNhan)
+                                            .Select(item => item.Text)
+                                            .FirstOrDefault();
+                                        }
+                                        @if (chungNhanHinhAnh is not null)
+                                        {
+                                            <img src="@chungNhanHinhAnh" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+                                        }
+                                        <div class="">
+                                            <p class="mb-2" style="font-size: 14px;">Chứng nhận</p>
+                                            <div class="d-flex justify-content-between">
+                                                <h5>
+                                                    @{
+                                                        string? chungNhanMoTa = chungNhans
+                                                        .Cast<SelectListItem>()
+                                                        .Where(item => item.Value == Model.IdchungNhan)
+                                                        .Select(item => item.Text)
+                                                        .FirstOrDefault();
+                                                    }
+                                                    @chungNhanMoTa
+                                                </h5>
+                                                <div class="d-flex mb-3">
+                                                    <i class="fa fa-star text-warning"></i>
+                                                    <i class="fa fa-star text-warning"></i>
+                                                    <i class="fa fa-star text-warning"></i>
+                                                    <i class="fa fa-star text-warning"></i>
+                                                    <i class="fa fa-star text-warning"></i>
+                                                </div>
+                                            </div>
+                                            <p class="text-dark">
+                                                Chứng nhận trên là một minh chứng cho chất lượng sản phẩm của chúng tôi luôn đảm bảo độ tươi ngon, hợp vệ sinh và an toàn thực phẩm. 
+                                                Sản phẩm của chúng tôi không chỉ đáp ứng các tiêu chuẩn khắt khe về vệ sinh an toàn thực phẩm, mà còn được sản xuất theo quy trình hiện đại, kiểm soát chất lượng nghiêm ngặt từ khâu nguyên liệu đầu vào đến khi hoàn thiện sản phẩm.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+}

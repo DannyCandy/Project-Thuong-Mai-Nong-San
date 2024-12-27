@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<main>
+    <div class="container-fluid px-4" style="background-image: url('~/Template/img/hero-img.jpg');background-size: cover; height: 100vh;">
+        <h1 class="mt-4">Quản lý biểu đồ doanh thu shop Nông Sản Xanh</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Nông sản xanh</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Đây là tổng hợp những biểu đồ thống kê số lượng mua hàng và doanh thu theo từng tháng trong năm 2024 
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-area me-1"></i>
+                Biểu đồ thống kê giá trị đơn hàng bán ra theo từng tháng trong năm 2024
+            </div>
+            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            <div class="card-footer small text-muted"></div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-bar me-1"></i>
+                Biểu đồ thống kê số lượng sản phẩm bán ra theo từng tháng trong năm 2024
+            </div>
+            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+            <div class="card-footer small text-muted"></div>
+        </div> 
+    </div>
+</main>
+@section Scripts{
+    <script src="~/admin/assets/demo/chart-area-demo-v1.js"></script>
+    <script src="~/admin/assets/demo/chart-bar-demo-v1.js"></script>
+}

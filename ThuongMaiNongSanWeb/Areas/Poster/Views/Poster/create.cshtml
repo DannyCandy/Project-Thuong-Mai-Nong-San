@@ -1,0 +1,181 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model WebApp.Areas.Poster.Models.Post
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "TẠO BÀI ĐĂNG MỚI";
+}
+
+<!-- Tải Thư viện ClassicEditor -->
+<script src="https://cdn.jsdelivr.net/npm/ckeditor5-classic-free-full-feature@35.4.1/build/ckeditor.min.js"></script>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card shadow-sm">
+                <div class="card-header btn-secondary text-white text-center">
+                    <h2 class="page-subtitle mb-4">Tạo bài đăng mới</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label asp-for="Title" class="form-label">Tiêu Đề</label>
+                            <input asp-for="Title" class="form-control" required />
+                            <div class="invalid-feedback">Vui lòng nhập tiêu đề.</div>
+                        </div>
+                        <div class="mb-4">
+                            <label asp-for="Content" class="form-label">Nội Dung</label>
+                            <textarea asp-for="Content" class="form-control" id="editor" rows="10" required></textarea>
+                            <div class="invalid-feedback">Vui lòng nhập nội dung.</div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Hình chủ đề cho bài viết</label>
+                            <input type="file" name="images" class="form-control" multiple />
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Người Tạo</label>
+                            <input type="text" class="form-control" value="@User.Identity.Name" disabled />
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Ngày Tạo</label>
+                            <input type="text" class="form-control" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")" disabled />
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success">Đăng Bài</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Trở về danh sách</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-subtitle {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2rem; /* Increase the size */
+        font-weight: 600; /* Make it bolder */
+        color: #343a40; /* A dark color for better visibility */
+        text-align: center; /* Center align */
+        margin-bottom: 20px; /* Space below */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Slight shadow for effect */
+    }
+
+    /* General styling for a professional look */
+    .page-title {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        color: #2c3e50;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+    }
+
+    .card {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.2rem;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #343a40;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border-color: #ced4da;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        border-radius: 30px;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+    .btn-outline-secondary {
+        border-radius: 30px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: white;
+        }
+
+    .card {
+        margin-bottom: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                plugins: ['Essentials',
+                    'Paragraph',
+                    'Heading',
+                    'Bold',
+                    'Italic',
+                    'Underline',
+                    'Strikethrough',
+                    'SourceEditing',
+                    'Subscript',
+                    'Superscript',
+                    'Alignment',
+                    'Indent',
+                    'IndentBlock',
+                    'BlockQuote',
+                    'Link',
+                    'Image',
+                    'ImageCaption',
+                    'ImageStyle',
+                    'ImageToolbar',
+                    'ImageUpload',
+                    'List',
+                    'MediaEmbed',
+                    'PasteFromOffice',
+                    'Table',
+                    'TableToolbar',
+                    'TableProperties',
+                    'TableCellProperties',
+                    'Highlight',
+                    'FontFamily',
+                    'FontSize',
+                    'FontColor',
+                    'FontBackgroundColor', 'GeneralHtmlSupport']
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
+
+

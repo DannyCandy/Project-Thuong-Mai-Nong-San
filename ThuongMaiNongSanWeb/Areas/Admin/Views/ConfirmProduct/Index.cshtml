@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<WebApp.Models.TotalProductOfDaiLy>
+<main>
+    <div class="container-fluid px-4">
+        <!--Quản lý đại lý-->
+        <h1 class="mt-4">Phê duyệt sản phẩm của đại lý</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Phê duyệt sản phẩm</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Phê duyệt sản phẩm của đại lý là nơi bạn sẽ kiểm duyệt các sản phẩm mới của từng đại lý. 
+                Chỉ khi sản phẩm được kiểm duyệt thì chúng mới có thể được hiển thị.
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Phê duyệt sản phẩm của Đại lý
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Tên đại lý</th>
+                            <th>Tổng số sản phẩm</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên đại lý</th>
+                            <th>Tổng số sản phẩm</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach(var DaiLy in Model)
+                        {
+                            <tr>
+                                <td>@DaiLy.DaiLyName</td>
+                                <td>@DaiLy.TotalProducts</td>
+                                <td>
+                                    @if(DaiLy.TotalProducts > 0){
+                                        <a asp-action="CheckProduct" asp-route-id="@DaiLy.DaiLyId" class="btn btn-success m-1">Đi đến phê duyệt</a>
+                                    }else{
+                                        <span>Tất cả sản phẩm đã được phê duyệt</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+@section Scripts{
+    <script src="~/admin/assets/demo/chart-area-demo-v1.js"></script>
+    <script src="~/admin/assets/demo/chart-bar-demo-v1.js"></script>
+    <script src="~/admin/js/datatables-simple-demo.js"></script>
+}

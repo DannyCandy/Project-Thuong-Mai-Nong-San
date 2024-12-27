@@ -1,0 +1,368 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@section Styles {
+    <style>
+        .col-xl-3 .dropdown-content {
+            position: absolute;
+            z-index: 999;
+            background-color: #fff;
+            display: none;
+            max-height: 251px;
+            overflow-y: auto;
+            box-sizing: border-box;
+            min-width: 306px;
+        }
+
+        .list {
+            padding-top: 20px;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .list:hover {
+            cursor: pointer;
+            background-color: rgba(129, 196, 8, 0.3);
+        }
+
+        .list .search-image {
+            max-width: 60px;
+            max-height: 60px;
+            padding-right: 10px;
+            object-fit: cover;
+        }
+
+        .list span {
+            color: rgb(33, 37, 41);
+        }
+
+        .list small {
+            color: #494242;
+        }
+
+        hr.divider {
+            border: 0;
+            height: 2px;
+            background-image: -webkit-linear-gradient(left, #f0f0f0, #000, #f0f0f0);
+            background-image: -moz-linear-gradient(left, #f0f0f0, #5d5555, #f0f0f0);
+            background-image: -ms-linear-gradient(left, #f0f0f0, #5d5555, #f0f0f0);
+            background-image: -o-linear-gradient(left, #f0f0f0, #5d5555, #f0f0f0);
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        #fixedResultSearch {
+            position: sticky;
+            z-index: 9999;
+            bottom: 0;
+            background-color: #fff;
+        }
+    </style>
+}
+@model PaginatedList<SanPham>
+@{
+    SelectList categories = ViewBag.Categories;
+    Dictionary<string, int> productCounts = ViewBag.ProductCounts;
+    string IdCate = ViewBag.IdCate;
+    string OrderBy = ViewBag.OrderBy;
+    string SearchName = ViewBag.SearchName;
+    bool isNull = ViewBag.IsNull;
+}
+@{
+    int numOfQuantity = 1;
+    ViewBag.PageType = "Shop"; 
+}
+@* Xử lý nút prev và nút next *@
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+@*Layout mới*@
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Trang chủ mua sắm</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home", new { area = "" })">Trang chủ</a></li>
+        <li class="breadcrumb-item active text-white">Trang mua sắm</li>
+    </ol>
+</div>
+
+<div class="container-fluid fruite py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <div class="row g-4">
+                    <div class="col-xl-3">
+                        <div class="input-group w-100 mx-auto d-flex">
+                            <input id="input-search-1" type="search" class="form-control p-3" placeholder="Nhập từ khoá tìm kiếm" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" onclick="searchClick()" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                            <!--Suggestions will be appended here -->
+                        <div class="rounded-2 dropdown-content border border-success" id="search-results">
+                            <!--Ajax fetch data and load content here-->
+                        </div>
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-xl-3">
+                        <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
+                            <label for="fruits">Sắp xếp theo:</label>
+                            <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3" form="fruitform">
+                                <option value="">Mặc định</option>
+                                <option value="asc">Tăng dần</option>
+                                <option value="desc">Giảm dần</option>
+                            </select>
+                        </div> 
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <h4>Phân loại sản phẩm</h4>
+                                    <ul class="list-unstyled fruite-categorie">
+                                        <!--Xử lý log category và số lượng sản phẩm theo category-->
+                                        @foreach(var i in productCounts)
+                                        {
+                                            <li>
+                                                <div class="d-flex justify-content-between fruite-name">
+                                                    @{
+                                                        string? categoryName = categories
+                                                        .Cast<SelectListItem>()
+                                                        .FirstOrDefault(item => item.Value == i.Key)?.Text;
+                                                    }
+                                                    <a class="@(IdCate == i.Key ? "active" : "")" href="@Url.Action("Index", new { pageIndex = 1, category = i.Key })"><i class="fas fa-apple-alt me-2"></i>@categoryName</a>
+                                                    <span>(@i.Value)</span>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12">
+                                <div class="position-relative">
+                                    <img src="~/Template/img/banner-fruits.jpg" class="img-fluid w-100 rounded" alt="">
+                                    <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                                        <h3 class="text-secondary fw-bold">Nông <br> Sản <br> Xanh</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row g-4 justify-content-center">
+                            @if(isNull){
+                                <h1>Không có kết quả tìm kiếm cho giá trị "@SearchName"</h1>
+                            }else{
+                                @foreach (var product in Model)
+                                {
+                                    <div class="col-md-6 col-lg-6 col-xl-4">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <a asp-action="Display" asp-route-id="@product.Idsp">
+                                                    <img src="@product.HinhAnhSp" class="img-fluid w-100 rounded-top" style="max-height: 180px!important" alt="Lỗi hình ảnh">
+                                                </a>
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
+                                                @*Xử lý lấy đúng category*@
+                                                @{
+                                                    string? categoryNameSp = categories
+                                                    .Cast<SelectListItem>()
+                                                    .Where(item => item.Value == product.Idcategory)
+                                                    .Select(item => item.Text)
+                                                    .FirstOrDefault();
+                                                }
+                                                @categoryNameSp
+                                            </div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4>@product.SpName</h4>
+                                                <p>@product.MoTa</p>
+                                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                                    <p class="text-dark fs-5 fw-bold mb-0">
+                                                        @string.Format("{0:#,##0} VNĐ / kg", product.Price)
+                                                    </p>
+
+                                                    <a class="btn border border-secondary rounded-pill px-3 text-primary" asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@product.Idsp" asp-route-quantity="@numOfQuantity"><i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            
+                            <div class="col-12">
+                                <div class="pagination d-flex justify-content-center mt-5">
+                                    <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-category=@IdCate asp-route-orderBy=@OrderBy asp-route-searchName="@SearchName" class ="rounded @prevDisabled">
+                                        &laquo;
+                                    </a>
+                                    @for (int i = 1; i <= @Model.TotalPages; i++)
+                                    {
+                                        <a class="rounded page-link @(i == @Model.PageIndex ? "active" : "")"
+                                           href="@Url.Action("Index", new { pageIndex = i , category = IdCate, orderBy = OrderBy, searchName = SearchName })">
+                                            @i
+                                        </a>
+                                    }
+                                    <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-category=@IdCate asp-route-orderBy=@OrderBy asp-route-searchName="@SearchName" class="rounded @nextDisabled">
+                                        &raquo;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        //Gắn sự kiện onlick cho nút search
+        //document.getElementById('search-icon-1').addEventListener('click',
+        function searchClick() {
+            // Lấy giá trị của trường input
+            var inputValue = document.getElementById('input-search-1').value;
+
+            // Xử lý giá trị hoặc thực hiện các thao tác mong muốn với nó
+            // Lấy tham số từ URL hiện tại
+            var urlParams = new URLSearchParams(window.location.search);
+
+            // Kiểm tra xem tham số selectedValue có tồn tại trong URL không
+            if (urlParams.has('searchName')) {
+                // Thay thế giá trị của tham số selectedValue bằng giá trị mới
+                urlParams.set('searchName', inputValue);
+                urlParams.set('pageIndex', 1);
+            } else {
+                // Thêm tham số mới vào URL
+                urlParams.append('searchName', inputValue);
+                urlParams.set('pageIndex', 1);
+            }
+
+            // Tạo URL mới
+            var newUrl = window.location.pathname + '?' + urlParams.toString();
+
+            // Chuyển hướng đến URL mới
+            window.location.href = newUrl;
+        };
+
+        // Kiểm tra nếu có tham số trên URL, thì chọn thẻ option tương ứng
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedValue = urlParams.get('orderBy');
+        var inputedValue = urlParams.get('searchName');
+        if (selectedValue) {
+            document.getElementById('fruits').value = selectedValue;
+        }
+        if (inputedValue) {
+            document.getElementById('input-search-1').value = inputedValue;
+        }
+        //--------------------------------------------------------------------------------------
+
+        // Gắn sự kiện onchange cho thẻ select
+        document.getElementById('fruits').addEventListener('change', function () {
+            // Lấy giá trị của thẻ option được chọn
+            var selectedValue = this.value;
+
+            // Lấy tham số từ URL hiện tại
+            var urlParams = new URLSearchParams(window.location.search);
+
+            // Kiểm tra xem tham số selectedValue có tồn tại trong URL không
+            if (urlParams.has('orderBy')) {
+                // Thay thế giá trị của tham số selectedValue bằng giá trị mới
+                urlParams.set('orderBy', selectedValue);
+                urlParams.set('pageIndex', 1);
+            } else {
+                // Thêm tham số mới vào URL
+                urlParams.append('orderBy', selectedValue);
+                urlParams.set('pageIndex', 1);
+            }
+
+            // Tạo URL mới
+            var newUrl = window.location.pathname + '?' + urlParams.toString();
+
+            // Chuyển hướng đến URL mới
+            window.location.href = newUrl;
+        });
+
+        // Kiểm tra nếu có tham số trên URL, thì chọn thẻ option tương ứng
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedValue = urlParams.get('orderBy');
+        if (selectedValue) {
+            document.getElementById('fruits').value = selectedValue;
+        }
+
+        //--------------------------------------------------------------------------------
+        //Xử lý tiền hiển thị gợi ý sản phẩm
+        $(document).ready(function () {
+            $("#input-search-1").keyup(function () {
+                var query = $(this).val();
+                if (query !== '') {
+                    $.ajax({
+                        url: "/Product/SearchSuggestions",
+                        type: "GET",
+                        data: { query: query },
+                        dataType: "json",
+                        success: function (data) {
+                            $("#search-results").empty(); // Clear previous suggestions
+                            if (data.length > 0) {
+                                $.each(data, function (index, suggestion) {
+                                    // Tạo phần tử mới cho từng gợi ý tìm kiếm
+                                    var formattedPrice = suggestion.price.toLocaleString('vi-VN'); // Ép kiểu số tiền sang chuỗi với dấu chấm phân cách hàng trăm ngàn
+                                    var suggestionHtml =
+                                        '<a class="list" href="/Product/Display/' + suggestion.idsp + '">' +
+                                        '<img class="float-left search-image" src="' + suggestion.hinhAnhSp + '" alt="">' +
+                                        '<div class="d-flex flex-column ml-3">' +
+                                        '<span class="fw-bold">' + suggestion.spName + '</span>' +
+                                        '<small>' + formattedPrice + ' VNĐ / kg' + '</small>' +
+                                        '</div>' +
+                                        '</a>';
+
+                                    $("#search-results").append(suggestionHtml); // Thêm gợi ý mới vào phần tử #search-results
+                                });
+
+                                var totalResults = '<div id=fixedResultSearch>' +
+                                    '<hr class="divider">' +
+                                    '<div style = "text-align: center; margin: auto" >' +
+                                    '<a href="/Product/Index?pageIndex=1&searchName=' + query + '" class="d-block">' +
+                                    '<span>Có <b>' + data.length + '</b> kết quả</span>' +
+                                    '</a>'
+                                    '</div>' +
+                                    '</div>'
+                                $("#search-results").append(totalResults);
+                                $(".dropdown-content").css("display", "block");
+                            } else {
+                                var noSuggestionHtml =
+                                    '<div class="list">' +
+                                    '<div class="d-flex flex-column ml-3" style="text-align: center; margin: auto">' +
+                                    '<i>Không có kết quả nào phù hợp.</i>' +
+                                    '</div>' +
+                                    '</div>';
+                                $("#search-results").append(noSuggestionHtml);
+                                $(".dropdown-content").css("display", "block");
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("Error when fetching data form SearchSuggestions:", error);
+                        }
+                    });
+                } else {
+                    $("#search-results").empty(); // Clear suggestions if query is empty
+                    $(".dropdown-content").css("display", "none");
+                }
+            });
+            // Handle click on suggestion
+            $(document).on("click", ".list", function () {
+                var selectedSuggestion = $(this).text();
+                $("#search-results").empty(); // Clear suggestions
+                $(".dropdown-content").css("display", "none"); // Hide dropdown
+            });
+            // Close dropdown if user clicks outside of it
+            $(document).click(function (event) {
+                if (!$(event.target).closest('.dropdown').length) {
+                    $(".dropdown-content").css("display", "none");
+                }
+            });
+        });
+    </script>
+}

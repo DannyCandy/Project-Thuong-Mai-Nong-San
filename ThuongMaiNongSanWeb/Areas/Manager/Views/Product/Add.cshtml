@@ -1,0 +1,94 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebApp.Models.SanPham
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<div class="container-fluid d-flex align-items-center justify-content-center" style="background-image: url('/Template/img/hero-img.jpg'); background-size: cover;">
+    <div class="text-center p-3" style="background-color: rgba(255, 255, 255, 0.7); border-radius: 10px; max-width: 800px; width: 100%;">
+        <h2 class="text-center" style="color: #4caf50;">@ViewData["Title"]</h2>
+        <form asp-area="Manager" asp-controller="Product" asp-action="Add" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label asp-for="SpName" class="form-label" style="color: #4caf50;">Tên sản phẩm</label>
+                        <input asp-for="SpName" class="form-control" />
+                        <span asp-validation-for="SpName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Price" class="form-label" style="color: #4caf50;">Giá tiền</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MoTa" class="form-label" style="color: #4caf50;">Mô tả sản phẩm</label>
+                        <textarea asp-for="MoTa" class="form-control"></textarea>
+                        <span asp-validation-for="MoTa" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CongDung" class="form-label" style="color: #4caf50;">Công dụng</label>
+                        <textarea asp-for="CongDung" class="form-control"></textarea>
+                        <span asp-validation-for="CongDung" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ThanhPhanDinhDuong" class="form-label" style="color: #4caf50;">Thành phần dinh dưỡng</label>
+                        <textarea asp-for="ThanhPhanDinhDuong" class="form-control"></textarea>
+                        <span asp-validation-for="ThanhPhanDinhDuong" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Hdsd" class="form-label" style="color: #4caf50;">Hướng dẫn sử dụng</label>
+                        <textarea asp-for="Hdsd" class="form-control"></textarea>
+                        <span asp-validation-for="Hdsd" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Idcategory" class="form-label" style="color: #4caf50;">Loại sản phẩm</label>
+                        <select asp-for="Idcategory" asp-items="@ViewBag.Categories" class="form-control"></select>
+                        <span asp-validation-for="Idcategory" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="IdchungNhan" class="form-label" style="color: #4caf50;">Chứng nhận</label>
+                        <select asp-for="IdchungNhan" asp-items="@ViewBag.ChungNhans" class="form-control"></select>
+                        <span asp-validation-for="IdchungNhan" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="IdDaiLy" value="@ViewBag.DaiLys" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="SoLuongSp" class="form-label" style="color: #4caf50;">Số lượng</label>
+                        <input asp-for="SoLuongSp" class="form-control" />
+                        <span asp-validation-for="SoLuongSp" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="HinhAnhSp" class="form-label" style="color: #4caf50;">Hình ảnh sản phẩm</label>
+                        <input id="inputImg" type="file" asp-for="HinhAnhSp" class="form-control" />
+                        <span asp-validation-for="HinhAnhSp" class="text-danger"></span>
+                    </div>
+                    <div class="mt-2 mb-2 text-center">
+                        <img id="imgViewer" class="img-thumbnail" alt="Product Image" src="~/images/0d64989794b1a4c9d89bff571d3d5842.jpg" style="max-width: 50%;" />
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-success btn-lg d-inline-block mr-2">Thêm sản phẩm</button>
+                        <a asp-action="Index" class="btn btn-secondary btn-lg d-inline-block">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("inputImg").addEventListener("change", function (e) {
+            var files = e.target.files;
+            document.getElementById("imgViewer").src = window.URL.createObjectURL(files[0]);
+        });
+    </script>
+}

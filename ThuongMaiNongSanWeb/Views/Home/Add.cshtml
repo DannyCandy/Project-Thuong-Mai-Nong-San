@@ -1,0 +1,275 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@section Styles{
+    <!--Thêm css cho form-->
+    <link href="~/css/form_style.css" rel="stylesheet">
+}
+@{
+    int fieldSetNum = ViewBag.FieldSetNum;
+}
+@model WebApp.Models.DaiLyOnline
+@if(fieldSetNum == 3)
+{
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1">
+        <div class="row justify-content-center mt-0">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2><strong>Bạn muốn trở thành 1 đại lý của chúng tôi?</strong></h2>
+                    <p>Hãy thực hiện theo các bước sau</p>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform" asp-area="" asp-controller="Home" asp-action="Add" method="post" enctype="multipart/form-data">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Thông tin đại lý</strong></li>
+                                    <li id="personal" class="active"><strong>Điều khoản sử dụng</strong></li>
+                                    <li id="payment" class="active"><strong>Phê duyệt</strong></li>
+                                    <li id="confirm"><strong>Hoàn thành</strong></li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Chờ phê duyệt !</h2>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="https://i.pinimg.com/474x/34/d7/6b/34d76b7976af6ab4d67d48f0caa68c5d.jpg" class="fit-image" title="HinhAnh">
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div>
+                                            Thông tin của bạn đã được lưu lại trên hệ thống và chúng tôi sẽ tiến hành phê duyệt ngay sau đó.
+                                            <br>
+                                            <em>Hãy kiên nhẫn chờ đợi!</em>
+                                        </div>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>Thông tin của bạn đang chờ phê duyệt</h5>
+                                            </div>
+                                            <div class="col-7 text-center">
+                                                <a type="button" class="btn btn-info" asp-area="" asp-controller="Home" asp-action="Index">Về trang chủ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if(fieldSetNum == 4)
+{
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1">
+        <div class="row justify-content-center mt-0">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2><strong>Bạn muốn trở thành 1 đại lý của chúng tôi?</strong></h2>
+                    <p>Hãy thực hiện theo các bước sau</p>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform" asp-area="" asp-controller="Home" asp-action="Add" method="post" enctype="multipart/form-data">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Thông tin đại lý</strong></li>
+                                    <li id="personal" class="active"><strong>Điều khoản sử dụng</strong></li>
+                                    <li id="payment" class="active"><strong>Phê duyệt</strong></li>
+                                    <li id="confirm" class="active"><strong>Hoàn thành</strong></li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Phê duyệt thành công!</h2>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image" title="HinhAnh">
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>Đại lý của bạn đã được phê duyệt! Hãy mau đăng tải sản phẩm của riêng mình.</h5>
+                                            </div>
+                                            <div class="col-7 text-center">
+                                                <a type="button" class="btn btn-info" asp-area="Manager" asp-controller="Manager" asp-action="Home">Đến shop của bạn</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1">
+        <div class="row justify-content-center mt-0">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2><strong>Bạn muốn trở thành 1 đại lý của chúng tôi?</strong></h2>
+                    <p>Hãy thực hiện theo các bước sau</p>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform" asp-area="" asp-controller="Home" asp-action="Add" method="post" enctype="multipart/form-data">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Thông tin đại lý</strong></li>
+                                    <li id="personal"><strong>Điều khoản sử dụng</strong></li>
+                                    <li id="payment"><strong>Phê duyệt</strong></li>
+                                    <li id="confirm"><strong>Hoàn thành</strong></li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Thông tin đại lý</h2>
+                                        @* <input type="text" name="uname" placeholder="Tên đại lý" /> *@
+                                        <input type="text" asp-for="NameDaiLy" placeholder="Tên đại lý" />
+                                        <span asp-validation-for="NameDaiLy" class="text-danger"></span>
+                                        @* <input type="text" name="introduct" placeholder="Giới thiệu" /> *@
+                                        <input type="text" asp-for="GioiThieu" placeholder="Giới thiệu sơ lược" />
+                                        <span asp-validation-for="GioiThieu" class="text-danger"></span>
+                                        <div class="form-group mb-3">
+                                            <label asp-for="AvatarDaiLy" class="form-label" style="color: #000; font-size: 16px;">Avatar Đại lý</label>
+                                            <input id="inputImg" type="file" asp-for="AvatarDaiLy" class="form-control" />
+                                            <span asp-validation-for="AvatarDaiLy" class="text-danger"></span>
+                                        </div>
+                                        <div class="mt-2 mb-2 text-center">
+                                            <img id="imgViewer" class="img-thumbnail" alt="DaiLy Image" src="~/images/0d64989794b1a4c9d89bff571d3d5842.jpg" style="max-width: 50%;" />
+                                        </div>
+                                    </div>
+                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Điều khoản và yêu cầu của dịch vụ</h2>
+                                        <div style="max-height: 400px;
+                                            overflow-y: scroll;
+                                            border: 1px solid #ccc;
+                                            padding: 10px;
+                                            margin-bottom: 20px;">
+                                            <b>Điều khoản và Yêu cầu Đại Lý</b><br>
+                                            <b>1. Định nghĩa</b><br>
+                                            1.1. "Đại lý" là cá nhân hoặc tổ chức đã ký kết hợp đồng với Shop Nông Sản Xanh để phân phối sản phẩm nông sản xanh của chúng tôi.<br>
+                                            1.2. "Shop Nông Sản Xanh" là công ty chúng tôi, chuyên cung cấp các sản phẩm nông sản hữu cơ và sản phẩm liên quan.<br><br>
+
+                                            <b>2. Quyền và Nghĩa vụ của Đại Lý</b><br>
+                                            2.1. Đại lý có quyền:<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;a. Tiếp cận và bán các sản phẩm của Shop Nông Sản Xanh theo hợp đồng đã ký kết.<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;b. Sử dụng hình ảnh và tài liệu quảng cáo được cung cấp bởi Shop Nông Sản Xanh để quảng bá sản phẩm.<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;c. Nhận được sự hỗ trợ và hướng dẫn từ Shop Nông Sản Xanh về sản phẩm và chiến lược bán hàng.<br>
+                                            2.2. Đại lý có nghĩa vụ:<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;a. Bảo vệ và tôn trọng thương hiệu của Shop Nông Sản Xanh.<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;b. Thực hiện các hoạt động bán hàng theo quy định của Shop Nông Sản Xanh.<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;c. Báo cáo doanh số bán hàng và các vấn đề liên quan đến kinh doanh theo yêu cầu của Shop Nông Sản Xanh.<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;d. Tuân thủ các quy định pháp luật và quy định về vệ sinh an toàn thực phẩm khi kinh doanh sản phẩm của Shop Nông Sản Xanh.<br><br>
+
+                                            <b>3. Chính sách Thanh toán và Giao hàng</b><br>
+                                            3.1. Shop Nông Sản Xanh sẽ cung cấp cho Đại lý thông tin về các chính sách thanh toán và giao hàng cụ thể qua hợp đồng đã ký kết hoặc tài liệu hướng dẫn riêng.<br>
+                                            3.2. Đại lý chịu trách nhiệm về các khoản thanh toán từ khách hàng và tuân thủ các điều khoản về thanh toán và giao hàng của Shop Nông Sản Xanh.<br><br>
+
+                                            <b>4. Chấm Dứt Hợp Đồng</b><br>
+                                            4.1. Cả Shop Nông Sản Xanh và Đại lý đều có quyền chấm dứt hợp đồng theo các điều khoản được quy định trong hợp đồng hoặc thông qua thông báo bằng văn bản trước ít nhất 30 ngày.<br>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <input type="checkbox" value="" id="flexCheckDefault">
+                                        <label for="flexCheckDefault">
+                                            Tôi đã đọc và đồng ý với các chính sách và điều khoản dịch vụ
+                                        </label>
+                                    </div>
+                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                    <input type="button" name="next" class="next action-button" value="Next Step" disabled id="commitFormDaiLy" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Chờ phê duyệt !</h2>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="https://i.pinimg.com/474x/34/d7/6b/34d76b7976af6ab4d67d48f0caa68c5d.jpg" class="fit-image" title="HinhAnh">
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div>
+                                            Thông tin của bạn đã được lưu lại trên hệ thống và chúng tôi sẽ tiến hành phê duyệt ngay sau đó.
+                                            <br>
+                                            <em>Hãy kiên nhẫn chờ đợi!</em>
+                                        </div>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>Thông tin của bạn đang chờ phê duyệt</h5>
+                                            </div>
+                                            <div class="col-7 text-center">
+                                                <a type="button" class="btn btn-info" asp-area="" asp-controller="Home" asp-action="Index">Về trang chủ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Phê duyệt thành công!</h2>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image" title="HinhAnh">
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>Đại lý của bạn đã được phê duyệt! Hãy mau đăng tải sản phẩm của riêng mình.</h5>
+                                            </div>
+                                            <div class="col-7 text-center">
+                                                <a type="button" class="btn btn-info" asp-area="Manager" asp-controller="Manager" asp-action="Home">Đến shop của bạn</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts{
+    <!--Thêm js cho form-->
+    <script src="~/js/form_act.js"></script>
+    @if (fieldSetNum == 1)
+    {
+        <script>
+            document.getElementById("inputImg").addEventListener("change", function (e) {
+                var files = e.target.files;
+                document.getElementById("imgViewer").src = window.URL.createObjectURL(files[0]);
+            });
+            const checkbox = document.getElementById("flexCheckDefault");
+            const inputTag = document.getElementById("commitFormDaiLy");
+            checkbox.addEventListener("change", function () {
+                if (checkbox.checked) {
+                    inputTag.removeAttribute("disabled");
+                } else {
+                    inputTag.setAttribute("disabled", "disabled");
+                    alert("Hãy chấp nhận điều khoản và chính sách sử dụng dịch vụ.")
+                }
+            });
+            inputTag.addEventListener("click", function () {
+                const form = document.getElementById("msform");
+                form.submit();
+            });
+        </script>
+    }
+}

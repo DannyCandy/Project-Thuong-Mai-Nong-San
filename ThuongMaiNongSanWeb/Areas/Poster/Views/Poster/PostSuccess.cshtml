@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Đăng Bài Thành Công";
+    Layout = "~/Areas/Poster/Views/Shared/_LayoutPoster.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">Đăng Bài Thành Công</div>
+                <div class="card-body">
+                    <p class="text-success">Bài đăng của bạn đã được đăng thành công!</p>
+                    <a href="@Url.Action("Index", "Poster")" class="btn btn-primary">Quay lại danh sách bài đăng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

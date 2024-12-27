@@ -1,0 +1,83 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model WebApp.Models.SanPham
+@{
+    SelectList categories = ViewBag.Categories;
+    SelectList chungNhans = ViewBag.ChungNhans;
+    string daiLyName = ViewBag.DaiLyName;
+}
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6">
+                @if (Model.HinhAnhSp is not null)
+                {
+                    <img class="card-img-top mb-5 mb-md-0" src="@Model.HinhAnhSp" alt="Product Image" />
+                }
+            </div>
+            <div class="col-md-6">
+                <div class="small mb-1">
+                    @{
+                        string? categoryName = categories
+                        .Cast<SelectListItem>()
+                        .Where(item => item.Value == Model.Idcategory)
+                        .Select(item => item.Text)
+                        .FirstOrDefault();
+                    }
+                    @categoryName
+                </div>
+                <div class="small mb-1">
+                    @{
+                        string? chungNhanImg = chungNhans
+                        .Cast<SelectListItem>()
+                        .Where(item => item.Value == Model.IdchungNhan)
+                        .Select(item => item.Text)
+                        .FirstOrDefault();
+                    }
+                    @if (chungNhanImg is not null)
+                    {
+                        <img src="@chungNhanImg" alt="Product Image" class="img-thumbnail mt-2" style="width: 100px" />
+                    }
+                </div>
+                <div class="small mb-1">
+                    @daiLyName
+                </div>
+                <h1 class="display-5 fw-bolder">@Model.SpName</h1>
+                <div class="fs-5 mb-5">
+                    <span>
+                        $@Model.Price
+                    </span>
+                </div>
+                <p class="lead">
+                    @Model.MoTa
+                </p>
+                <p class="lead">
+                    @Model.Hdsd
+                </p>
+                <p class="lead">
+                    @Model.CongDung
+                </p>
+                <p class="lead">
+                    @Model.CongDung
+                </p>
+                <p class="lead">
+                    @Model.ThanhPhanDinhDuong
+                </p>
+                <p class="lead">
+                    @Model.SoLuongSp
+                </p>
+                <div class="d-flex mt-5">
+                    <a class="btn btn-outline-secondary flex-shrink-0" asp-action="Index" type="button">
+                        <i class="bi-cart-fill me-1"></i>
+                        Quay về danh sách
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+}

@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApp.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li>
+        <a id="manage" class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Trang thông tin tài khoản">
+            @* Xin chào @(User.FindFirst("UserFullName").Value)! *@
+            Thông tin tài khoản
+        </a>
+        @{
+            // Kiểm tra nếu người dùng không phải Admin
+            bool isNotAdmin = !User.IsInRole("Admin");
+        }
+
+        @if (isNotAdmin)
+        {
+            <a id="manageRole" class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Add" title="Trang trở thành đại lý">
+                Trở thành đại lý
+            </a>
+        }
+
+        @if ((await AuthorizationService.AuthorizeAsync(User, "RequireMember")).Succeeded)
+        {
+            <a id="userOrderHistory" class="dropdown-item" asp-area="" asp-controller="User" asp-action="OrderHistory" title="Trang lịch sử đặt hàng">
+                Lịch sử mua hàng
+        </a>
+        }
+    </li>
+    <li>
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="dropdown-item">Đăng xuất</button>
+        </form>
+    </li>
+}
+else
+{
+    <li>
+        <a id="register" class="dropdown-item" asp-area="Identity" asp-page="/Account/Register" title="Register">Đăng Ký</a>
+    </li>
+    <li>
+        <a id="login" class="dropdown-item" asp-area="Identity" asp-page="/Account/Login" title="Login">Đăng nhập</a>
+    </li>
+}
