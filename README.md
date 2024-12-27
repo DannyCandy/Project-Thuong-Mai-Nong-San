@@ -38,9 +38,11 @@ Website:
 
 * Frontend: HTML, CSS, JavaScript
 * Backend: Asp.net mvc with MSSQL Database
+* 
 App:
 
 * Dart
+
 Way to find out:
 
 * The logic related to the website backend and website interface we designed and stored in the folder "ThuongMaiNongSanWeb"
