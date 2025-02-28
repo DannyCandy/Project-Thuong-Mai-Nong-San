@@ -38,7 +38,7 @@ Website:
 
 * Frontend: HTML, CSS, JavaScript
 * Backend: Asp.net mvc with MSSQL Database
-* 
+
 App:
 
 * Dart
