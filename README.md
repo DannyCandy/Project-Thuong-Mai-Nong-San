@@ -50,3 +50,27 @@ Way to find out:
 * The logic related to the app interface and how to call the API to connect to the Asp.net server are designed and stored in the "ThuongMaiNongSanApp" folder.
 
 * The logic related to the api for the flutter app to connect to the Asp.net Backend we designed and stored in the folder "ThuongMaiNongSanWeb/MobileApp"
+
+Demo
+
+Some pages in website below
+
+![image](https://github.com/user-attachments/assets/75cd276c-397b-477f-967d-16a6a0f2164a)
+
+![image](https://github.com/user-attachments/assets/3befba85-9e95-469c-8da5-6bcaa6fec0a7)
+
+![image](https://github.com/user-attachments/assets/295d3087-a018-47b7-be0b-58e971cf9ffd)
+
+![image](https://github.com/user-attachments/assets/f13bcc77-a977-43d7-9bc5-eb339680b0cd)
+
+Some screens in app below
+
+![image](https://github.com/user-attachments/assets/8a50422f-a02f-4173-9efe-0ae91776cae3)
+
+![image](https://github.com/user-attachments/assets/d3cedd1d-eaa3-4cf9-83f4-e602297e073a)
+
+![image](https://github.com/user-attachments/assets/5bf61797-c08c-4388-adbf-e4d49c95ee58)
+
+
+
+
